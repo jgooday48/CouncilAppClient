@@ -3,9 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="./assets/js/index.js" defer></script>
+    <title>Florin Council</title>
 </head>
 <body>
+    <header>
+        <nav class="navBar">
+            <img class="navLogo" src="./assets/images/Florin County Logo.png" alt="Florin county council logo">
+            <ul class="itemList">
+                <li class="navItem"><a href="#">Marketplace</a></li>
+                <li class="navItem"><a href="#">Skills</a></li>
+                <li class="navItem"><a href="#">Library</a></li>
+                <li class="navItem"><button id="openPopUp">MyAccount</button></li>
+            </ul>
+        </nav>
+        <div class="banner">
+            <h1>Florin Council</h1>
+        </div>
+    </header> 
     
+    <main>
+        <div class="container">
+            <div class="popupContainer">
+                <div class="login">
+                    <button id="exitBtn">&times;</button>
+                    <form id="loginForm">
+                        <fieldset>
+                            <legend> Login details </legend>
+                            <label for="email">email: </label><br>
+                            <input type="text" id="email" name="email"><br>
+    
+                            <label for="password">password: </label><br>
+                            <input type="password" id="password" name="password"><br>
+                        </fieldset>
+                        <input type="submit" value="Log in">
+                        <p>No account? <button id="openRegister">register here</button></p>
+                    </form>
+                </div>
+                <div class="register">
+                    <button id="exitBtn2">&times;</button>
+                    <form id="registrationForm">
+                        <fieldset>
+                            <legend> Name </legend>
+                            <label for="name">firstname</label> <br>
+                            <input type="text" id="name" name="name"> <br>
+                            <label for="surname">surname</label> <br>
+                            <input type="text" id="surname" name="surname"> <br>
+                        </fieldset>
+                        <fieldset>
+                            <legend> Details </legend>
+                            <label for="email">email</label><br>
+                            <input type="text" id="email" name="email"><br>
+                            <label for="password">password</label><br>
+                            <input type="text" id="password" name="password"><br>
+                        </fieldset>
+                        <input type="submit" value="Register">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <h2>Services</h2>
+            <div class="serviceContainer">
+                <ul>
+                    <li class="service"><a href="#">service</a></li>
+                    <li class="service"><a href="#">service</a></li>
+                    <li class="service"><a href="#">service</a></li>
+                    <li class="service"><a href="#">service</a></li>
+                    <li class="service"><a href="#">service</a></li>
+                    <li class="service"><a href="#">service</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="container">
+            <h2>Initiatives</h2>
+            <div class="initiativeContainer" id="initiatives">
+                
+            </div>
+        </div>
+    </main>
+    <footer></footer>
 </body>
 </html>
