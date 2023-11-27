@@ -74,6 +74,10 @@
     font-size: 70px;
 }
 
+main{
+
+}
+
 .container{
     background-color: red;
 }
@@ -126,3 +130,6 @@ form{
     background-color: blueviolet;
 }
 
+footer{
+
+}
