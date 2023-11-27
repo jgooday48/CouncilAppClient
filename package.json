@@ -4,7 +4,7 @@
   "description": "This repo is the client side of a council app.",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watchAll --detectOpenHandles --runInBand --verbose",
+    "test": "jest --watchAll",
     "unitTests": "jest --testPathPattern=/unit/ --watchAll --verbose",
     "coverage": "jest --coverage --testPathPattern=/unit/"
   },
@@ -13,6 +13,12 @@
   "license": "ISC",
   "devDependencies": {
     "jest": "^29.7.0",
+    "jsdom": "^23.0.0",
     "supertest": "^6.3.3"
+  },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "./__tests__/helpers.js"
+    ]
   }
 }
