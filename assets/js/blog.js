@@ -78,7 +78,8 @@ function createPostElement(data) {
                 method: "PATCH",
                 headers: {
                     'Accept': 'application/json',
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Cache-Control': 'no-cache', // Add this line
                 },
                 body: JSON.stringify({
                     content: editContent.value
@@ -89,6 +90,8 @@ function createPostElement(data) {
                 `http://localhost:3000/posts/${data['id']}`,
                 options
             );
+
+            
 
         })
 
