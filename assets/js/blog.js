@@ -77,7 +77,7 @@ async function handleEdit(data) {// edit content
     });
 }
 
-function createPostElement(data) { //create posts
+function createPostElement(data) {
     const post = document.createElement("div");
     post.className = "post";
 
@@ -85,9 +85,10 @@ function createPostElement(data) { //create posts
     header.textContent = data["title"];
     post.appendChild(header);
 
-    const content = document.createElement("p");
-    content.textContent = data["content"];
+    const content = document.createElement("div");
+    content.innerHTML = data["content"].replace(/\n/g, '<br>'); // Replace newline characters with <br> tags
     content.setAttribute("contenteditable", "true");
+    content.style.textAlign = "center"; // Center the text
     post.appendChild(content);
 
     const removeBtn = document.createElement("button");
@@ -106,6 +107,7 @@ function createPostElement(data) { //create posts
 
     return post;
 }
+
 
 document.getElementById("post-form").addEventListener("submit", async (e) => {
     e.preventDefault();
