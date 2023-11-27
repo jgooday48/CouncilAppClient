@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script defer src="./assets/js/blog.js"></script> -->
+    <!-- <link rel="stylesheet" href="./assets/css/diary.css"> -->
+    <title>Knowledge and Crafts</title>
+</head>
+<body>
+    <h1>Knowledge and Crafts Sharing</h1>
+
+    <p>Here you can post knowledge and crafts to share with others in the community</p>
+
+
+    <main>
+        <div>
+            <button class="newPostBtn" onclick="openForm()">Add a new Post</button>
+        </div>
+
+        <div class="form-popup" id="post-form">
+            <form class="form-container">
+                <h2>Post a diary entry</h2>
+                <fieldset id="titleField">
+                    <label for="title">Title:</label>
+                    <input type="text" id="title" name="title" required>
+                </fieldset>
+
+                <fieldset id="categoryField">
+                    <label for="category">Category:</label>
+                    <input type="text" id="category" name="category" required>
+                </fieldset>
+
+                <fieldset>
+                    <label for="title">Content:</label>
+                    <textarea id="content" name="content" required></textarea>
+                </fieldset>
+                <input type="submit"  class="btn postBtn" value="Post" id="post">
+                <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
+            </form>
+        </div>
+
+
+        <div class="form-popup" id="edit-form">
+            <form class="form-container">
+                <h2>Edit your entry</h2>
+
+                <fieldset>
+                    <label for="title">Content:</label>
+                    <textarea id="editContent" name="content" required></textarea>
+                </fieldset>
+                <input type="submit"  class="btn acceptBtn" value="Accept" id="accept">
+                <button type="button" class="btn cancel" onclick="closeEditForm()">Cancel</button>
+            </form>
+        </div>
+
+        <div class="container" id="posts" style="overflow-y:scroll;"></div>
+
+    </main>
+
+    <nav>
+        <button id="log-out"><a href="./index.html">Log out</a></button>
+    </nav>
+
+    
+</body>
+</html>
