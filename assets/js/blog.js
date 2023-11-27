@@ -64,7 +64,7 @@ async function handleEdit(data) {// edit content
         const userResponse = window.confirm("Are you sure that you want to edit this entry?");
         if (userResponse) {
         const response = await fetch(
-            `http://localhost:3000/posts/${data['id']}`, options);
+            `http://localhost:3000/posts/${data['id']}`,options);
 
         if (response.status === 200) {
             closeEditForm();

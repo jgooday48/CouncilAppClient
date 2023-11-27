@@ -1,5 +1,5 @@
 
-header, p {
+header, p, h1 {
   display: flex;
   justify-content: center;
 }
@@ -36,8 +36,8 @@ textarea {
 .but {
   display: flex;
   justify-content: center;
-  text-align: center;
-  align-items: center;
+  /* text-align: center;
+  align-items: center; */
 }
 .newPostBtn {
   background-color: green;
