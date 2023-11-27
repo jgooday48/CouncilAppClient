@@ -14,7 +14,7 @@ function closeEditForm() {
     document.getElementById("edit-form").style.display = "none";
 }
 
-async function handleDelete(data) {
+async function handleDelete(data) { // allows deletion of items
     const options = {
         headers: {
             Authorization: localStorage.getItem('token')
@@ -39,15 +39,16 @@ async function handleDelete(data) {
     }
 }
 
-async function handleEdit(data) {
+async function handleEdit(data) {// edit content
     openEditForm();
 
     const acceptBtn = document.getElementById("accept");
+    const editContent = document.getElementById("editContent");
+    editContent.value = data.content // easily allows users to correct typos etc
 
     acceptBtn.addEventListener('click', async (e) => {
         e.preventDefault();
 
-        const editContent = document.getElementById("editContent");
 
         const options = {
             method: "PATCH",
@@ -76,7 +77,7 @@ async function handleEdit(data) {
     });
 }
 
-function createPostElement(data) {
+function createPostElement(data) { //create posts
     const post = document.createElement("div");
     post.className = "post";
 
