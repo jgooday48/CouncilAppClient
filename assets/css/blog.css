@@ -1,11 +1,19 @@
 
+header, p {
+  display: flex;
+  justify-content: center;
+}
+
 .container {
     display: flex;
-    height: 50vh;
+    height: 75vh;
     flex-wrap: wrap;
     align-content: flex-start;
+    justify-content: center;
     row-gap: 15px;
     padding: 45px;
+    max-width: 1000px;
+    margin: auto;
 }
 
 .post {
@@ -18,14 +26,21 @@
 textarea {
     width: 300px; 
     height: 150px; 
+    display: flex;
+    justify-content: center;
   }
 
   body {font-family: Arial, Helvetica, sans-serif;}
 * {box-sizing: border-box;}
 
-
+.but {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
 .newPostBtn {
-  background-color: #555;
+  background-color: green;
   color: white;
   padding: 16px 20px;
   border: none;
