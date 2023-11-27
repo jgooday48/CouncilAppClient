@@ -61,11 +61,10 @@ async function handleEdit(data) {// edit content
                 content: editContent.value
             })
         };
-
+        const userResponse = window.confirm("Are you sure that you want to edit this entry?");
+        if (userResponse) {
         const response = await fetch(
-            `http://localhost:3000/posts/${data['id']}`,
-            options
-        );
+            `http://localhost:3000/posts/${data['id']}`, options);
 
         if (response.status === 200) {
             closeEditForm();
@@ -74,6 +73,7 @@ async function handleEdit(data) {// edit content
             const respData = await response.json();
             alert(respData.error);
         }
+    }
     });
 }
 
@@ -147,7 +147,7 @@ async function loadPosts() {
 
         const container = document.getElementById("posts");
 
-        posts.forEach(p => {
+        posts.forEach(p => { // posts content
             const elem = createPostElement(p);
             container.appendChild(elem);
         });
