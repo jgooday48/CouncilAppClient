@@ -17,22 +17,11 @@ function closeEditForm() {
 function createPostElement(data) {
     const post = document.createElement("div");
     post.className = "post";
-
-
-    const dateElement = document.createElement("p");
-    const dates = data["date"]; 
-    const originalDates = new Date(dates);
-    const formattedDate = `${originalDates.getDate().toString().padStart(2, '0')}-${(originalDates.getMonth() + 1).toString().padStart(2, '0')}-${originalDates.getFullYear()}`;
-    dateElement.textContent = formattedDate;
-    post.appendChild(dateElement);
     
     const header = document.createElement("h1");
     header.textContent = data["title"];
     post.appendChild(header);
 
-    const category = document.createElement("h3");
-    category.textContent = data["category"];
-    post.appendChild(category);
 
     const content = document.createElement("p");
     content.textContent = data["content"];
@@ -124,7 +113,6 @@ document.getElementById("post-form").addEventListener("submit", async (e) => {
         body: JSON.stringify({
             title: form.get("title"),
             content: form.get("content"),
-            category: form.get("category")
         })
     }
 
