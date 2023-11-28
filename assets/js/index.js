@@ -20,30 +20,30 @@ document.getElementById('openRegister').addEventListener('click', (e) => {
     document.querySelector('.register').style.display = 'flex'
 })
 
-let data = {
-    title: 'U-Turn',
-    text: 'We are stopping recycling'
-}
+// let data = {
+//     title: 'U-Turn',
+//     text: 'We are stopping recycling'
+// }
 
-function createInitiative(data){
-    const initiative = document.createElement('div');
-    initiative.className ='initiative'
-    const title = document.createElement("h2")
-    title.textContent = data.title
-    const text = document.createElement("p")
-    text.textContent = data.text
+// function createInitiative(data){
+//     const initiative = document.createElement('div');
+//     initiative.className ='initiative'
+//     const title = document.createElement("h2")
+//     title.textContent = data.title
+//     const text = document.createElement("p")
+//     text.textContent = data.text
 
-    initiative.appendChild(title)
-    initiative.appendChild(text)
-    return initiative
-}
+//     initiative.appendChild(title)
+//     initiative.appendChild(text)
+//     return initiative
+// }
 
-async function loadInitiatives(){
-    const container = document.getElementById('initiatives')
+// async function loadInitiatives(){
+//     const container = document.getElementById('initiatives')
 
-    const ini = createInitiative(data)
-    container.appendChild(ini)
-}
+//     const ini = createInitiative(data)
+//     container.appendChild(ini)
+// }
 
 
-loadInitiatives()
+// loadInitiatives()
