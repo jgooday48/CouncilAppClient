@@ -20,13 +20,18 @@ document.getElementById('openRegister').addEventListener('click', (e) => {
     document.querySelector('.register').style.display = 'flex'
 })
 
-function createInitiative(){
+let data = {
+    title: 'U-Turn',
+    text: 'We are stopping recycling'
+}
+
+function createInitiative(data){
     const initiative = document.createElement('div');
     initiative.className ='initiative'
     const title = document.createElement("h2")
-    title.textContent = 'U-Turn'
+    title.textContent = data.title
     const text = document.createElement("p")
-    text.textContent = 'We are stopping recyycling'
+    text.textContent = data.text
 
     initiative.appendChild(title)
     initiative.appendChild(text)
@@ -36,7 +41,7 @@ function createInitiative(){
 async function loadInitiatives(){
     const container = document.getElementById('initiatives')
 
-    const ini = createInitiative()
+    const ini = createInitiative(data)
     container.appendChild(ini)
 }
 
