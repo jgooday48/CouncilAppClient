@@ -33,30 +33,6 @@ a{
     background-color: red;
 }
 
-.popupContainer{
-    background-color: antiquewhite;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform:translate(-50%, -50%);
-}
-
-.login{
-    display: none;
-    padding: 20px;
-    align-items: center;
-}
-
-.register{
-    display: none;
-    padding: 20px;
-    align-items: center;
-}
-
-form{
-    padding: 0px 5px 0px 5px;
-}
-
 .communityStatmentContainer{
     background-color: darkgreen;
     display: flex;
