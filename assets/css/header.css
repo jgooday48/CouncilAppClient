@@ -10,8 +10,8 @@
 }
 
 .navLogo{
-    width: 180px;
-    height: 140px;
+    width: 240px;
+    height: 180px;
 }
 
 .itemList{
@@ -22,27 +22,37 @@
 
 .navItem a{
     color: aliceblue;
+    opacity: 0.8;
     margin-right: 20px;
     padding: 15px;
     font-size: 20px;
-    font-weight: bold;
 }
 
 .navItem a:hover{
-    background-color: darkgreen;
+    opacity: 1;
+    color: darkgreen;
+}
+
+.navItem a:active{
+    color: rgb(1, 70, 1)
 }
 
 .navItem #openPopUp{
     color: aliceblue;
+    opacity: 0.8;
     border: 0;
     padding: 15px;
-    margin-right: 20px;
+    margin-right: 150px;
     font-size: 20px;
-    font-weight: bold;
     background-color: black;
 }
 
 .navItem #openPopUp:hover{
     cursor: pointer;
-    background-color: darkgreen;
+    opacity: 1;
+    color: darkgreen;
+}
+
+.navItem #openPopUp:active{
+    color: rgb(1, 70, 1)
 }
