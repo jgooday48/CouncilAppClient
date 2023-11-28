@@ -124,6 +124,7 @@ document.getElementById("post-form").addEventListener("submit", async (e) => {
         body: JSON.stringify({
             title: form.get("title"),
             content: form.get("content"),
+            // user_id: getUserIdFromLocalStorage()
         })
     };
 
@@ -160,4 +161,4 @@ async function loadPosts() {
 
 loadPosts();
 
-module.exports = { handleDelete, handleEdit, createPostElement }
+
