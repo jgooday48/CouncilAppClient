@@ -3,7 +3,7 @@ document.getElementById("registrationForm").addEventListener("submit", async (e)
 
     const form = new FormData(e.target);
 
-    const options = {
+    const registrationOptions = {
         method: "POST",
         headers: {
             'Accept': 'application/json',
@@ -15,31 +15,55 @@ document.getElementById("registrationForm").addEventListener("submit", async (e)
             email: form.get("email"),
             password: form.get("password")
         })
-    }
+    };
 
     try {
-        const response = await fetch("http://localhost:3000/users/register", options);
+        const registrationResponse = await fetch("http://localhost:3000/users/register", registrationOptions);
 
-        // Check if the response status is 201 (Created)
-        if (response.status === 201) {
-            window.location.assign("index.html");
+        // Check if the registration response status is 201 (Created)
+        if (registrationResponse.status === 201) {
+            // Now that the user is registered, log in immediately
+            const loginOptions = {
+                method: "POST",
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    email: form.get("email"),
+                    password: form.get("password")
+                })
+            };
+
+            const loginResponse = await fetch("http://localhost:3000/users/login", loginOptions);
+            const loginData = await loginResponse.json();
+
+            if (loginResponse.status === 200) {
+                // Successfully logged in, store the token or user information as needed
+                localStorage.setItem("token", loginData.token);
+                localStorage.setItem("user_id", loginData.user_id);
+                console.log(loginData.user_id);
+                
+                // Redirect to the desired page after successful login
+                window.location.assign("index.html");
+            } else {
+                alert(loginData.error);
+            }
         } else {
-            // Try to parse response as JSON if possible
-            let data;
+            let registrationData;
             try {
-                data = await response.json();
+                registrationData = await registrationResponse.json();
             } catch (jsonError) {
                 console.error("Error parsing JSON:", jsonError);
             }
 
-            // Check if the response contains JSON with an error property
-            if (data && data.error) {
-                alert(data.error);
+            if (registrationData && registrationData.error) {
+                alert(registrationData.error);
             } else {
-                console.error("Unexpected response format:", response);
+                console.error("Unexpected registration response format:", registrationResponse);
             }
         }
     } catch (error) {
-        console.error("Error:", error);
+        console.error("Error during registration:", error);
     }
 });
