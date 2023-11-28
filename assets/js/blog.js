@@ -159,3 +159,5 @@ async function loadPosts() {
 }
 
 loadPosts();
+
+module.exports = { handleDelete, handleEdit, createPostElement }
