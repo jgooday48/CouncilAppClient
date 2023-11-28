@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest --watchAll --detectOpenHandles --runInBand --verbose",
     "unitTests": "jest --testPathPattern=/unit/ --watchAll --verbose",
-    "coverage": "jest --coverage --testPathPattern=/unit/"
+    "coverage": "jest --coverage --testPathPattern=/unit/",
+    "live-server": "live-server"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +15,7 @@
   "devDependencies": {
     "jest": "^29.7.0",
     "jsdom": "^23.0.0",
+    "live-server": "^1.2.2",
     "supertest": "^6.3.3"
   },
   "jest": {
