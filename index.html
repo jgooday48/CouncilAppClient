@@ -6,6 +6,9 @@
     <link rel="stylesheet" href="./assets/css/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="./assets/js/index.js" defer></script>
+    <script src="./assets/js/login.js" defer></script>
+    <script src="./assets/js/register.js" defer></script>
+    <!-- <script src="./assets/js/logout.js" defer></script> -->
     <title>Florin Council</title>
 </head>
 <body>
@@ -14,6 +17,7 @@
             <a href="index.html"><img class="navLogo" src="./assets/images/Florin County Logo.png" alt="Florin county council logo"></a>
             <ul class="itemList">
                 <li class="navItem"><a href="#">Marketplace</a></li>
+                <li class="navItem"><a href="blog.html">Skills</a></li>
                 <li class="navItem"><a href="blog.html">Skills</a></li>
                 <li class="navItem"><a href="#">Library</a></li>
                 <li class="navItem"><button id="openPopUp">MyAccount</button></li>
@@ -55,10 +59,11 @@
                         <fieldset>
                             <legend> Details </legend>
                             <label for="email">email</label><br>
-                            <input type="text" id="email" name="email"><br>
+                            <input type="text" id="registerEmail" name="email"><br>
                             <label for="password">password</label><br>
                             <input type="password" id="password" name="password"><br>
                         </fieldset>
+                        <!-- <button type="submit">Register</button> -->
                         <input type="submit" value="Register">
                     </form>
                 </div>
