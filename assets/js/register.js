@@ -22,7 +22,7 @@ document.getElementById("registrationForm").addEventListener("submit", async (e)
 
         // Check if the response status is 201 (Created)
         if (response.status === 201) {
-            window.location.assign("blog.html");
+            window.location.assign("index.html");
         } else {
             // Try to parse response as JSON if possible
             let data;
