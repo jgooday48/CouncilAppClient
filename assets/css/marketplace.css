@@ -1,6 +1,6 @@
 #post-board {
     display: grid;
-    min-height: 50vh;
+    min-height: 60vh;
     background-color: aquamarine;
     grid-template-columns: repeat(auto-fit, minmax(300px, 20vh)); /* Setting a minimum width of 300px per column */
     gap: 20px; /* Adjust the gap between grid items */
@@ -16,6 +16,12 @@
     display: grid;
     grid-template-rows: 70% 10% 20%;
     overflow: hidden;
+    cursor: pointer;
+}
+
+.post:hover {
+    transform: scale(1.03);
+    transition-duration: 0.5s;
 }
 
 .image {
@@ -47,4 +53,5 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 20px;
 }

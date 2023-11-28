@@ -20,6 +20,7 @@ function createPostElement (data) {
     post.appendChild(title);
 
     const description = document.createElement("div");
+    description.className = "description"
     description.textContent = data["description"];
     post.appendChild(description);
 
@@ -30,7 +31,6 @@ function createPostElement (data) {
 
 
 async function postBoard(){
-    // const data = await fetch("http://localhost:3000/post/")
     const response = await fetch("http://localhost:3000/post/");
 
     if (response.status == 200) {
@@ -46,3 +46,13 @@ async function postBoard(){
 }
 
 postBoard()
+
+const posts = document.querySelectorAll('.post');
+
+posts.forEach(post => {
+    post.addEventListener('click', (e) => {
+        const postId = e.target.id;
+        console.log(`Post with ID ${postId} was clicked.`);
+        // Perform actions specific to the clicked post
+    });
+});
