@@ -13,6 +13,9 @@
     
     <link rel="stylesheet" href="./assets/css/index.css">
     <script src="./assets/js/index.js" defer></script>
+    <script src="./assets/js/login.js" defer></script>
+    <script src="./assets/js/register.js" defer></script>
+    <!-- <script src="./assets/js/logout.js" defer></script> -->
     <title>Florin Council</title>
 </head>
 
@@ -62,10 +65,12 @@
                         <fieldset>
                             <legend> Details </legend>
                             <label for="email">email</label><br>
-                            <input type="text" id="email" name="email"><br>
+                            <input type="text" id="registerEmail" name="email"><br>
                             <label for="password">password</label><br>
-                            <input type="password" id="password" name="password"><br>
+                            <input type="password" id="registerPassword" name="password"><br>
+
                         </fieldset>
+                        <!-- <button type="submit">Register</button> -->
                         <input type="submit" value="Register">
                     </form>
                 </div>
@@ -86,6 +91,7 @@
         </div>
     </main>
 </body>
+
 
 <footer>
     <div class="mediaIcons">
