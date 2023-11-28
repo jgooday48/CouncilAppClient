@@ -21,8 +21,14 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
     if (response.status == 200) {
 
         localStorage.setItem("token", data.token)
+        localStorage.setItem("user_id", data.user_id)
+        console.log(data.user_id)
         window.location.assign("blog.html")
     } else {
         alert(data.error);
     }
 })
+
+
+
+
