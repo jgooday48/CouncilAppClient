@@ -20,7 +20,6 @@ let book2 = {
     consequence is sent to Camp Green Lake, a juvenile corrections facility."
 }
 
-
 function createBookPostingIMG(data){
     const imgBox = document.createElement('div')
     imgBox.className = 'bookImage'
@@ -50,7 +49,6 @@ function createBookPostingDES(data){
   return descriptionBox
 }
 
-
 async function loadBookPosting(data){
     const bigContainer = document.getElementById('bigContainer')
     const smallContainer = document.createElement('div')
@@ -69,21 +67,132 @@ async function loadBookPosting(data){
 loadBookPosting(book1)
 loadBookPosting(book2)
 
-const dropArea = document.querySelector(".drag-area"),
-dragText = dropArea.querySelector("header"),
-button = dropArea.querySelector("button"),
-input = dropArea.querySelector("input");
-let file;
+//////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////
 
-button.onclick = ()=>{
-  input.click();
+function createBookPostingIMG2(data) {
+  const imgBox = document.createElement('div')
+  imgBox.className = 'bookImage'
+  
+  const img = document.createElement('img')
+  img.src = ''
+  img.alt = 'image not found'
+  
+  imgBox.appendChild(img)
+  return imgBox
 }
 
-input.addEventListener("change", function(){
-  file = this.files[0];
-  dropArea.classList.add("active");
-  showFile(); //calling function
+function createBookPostingDES2(data){
+  const descriptionBox = document.createElement('div')
+  descriptionBox.className = 'bookDescription'
+  
+  const bookTitle = document.createElement('h2')
+  const author = document.createElement('h3')
+  const description = document.createElement('p')
+  
+  bookTitle.textContent = data.title
+  descriptionBox.appendChild(bookTitle)
+  
+  author.textContent = data.author
+  descriptionBox.appendChild(author)
+  
+  description.textContent = data.content
+  descriptionBox.appendChild(description)
+  
+  // console.log(`126 book title: ${data['title']}`)
+  return descriptionBox
+}
+
+document.getElementById("post-form").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const form = new FormData(e.target);
+
+  const options = {
+    method: "POST",
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      Authorization: localStorage.getItem('token')
+    },
+    body: JSON.stringify({
+      title: form.get("title"),
+      author: form.get("author"),
+      content: form.get("content")
+    })
+  };
+
+  const result = await fetch("http://localhost:3000/books", options);
+  closeForm();
+  
+  if (result.status == 201) {
+    // Parse the response to get the created post data
+    const newPostData = await result.json();
+      
+    // Create a new post element and append it to the container
+    const bigContainer = document.getElementById("bigContainer");
+    const smallContainer = document.createElement('div')
+    smallContainer.className = 'smallContainer'
+
+    const newPostIMG = createBookPostingIMG2(newPostData);
+    const newPostDES = createBookPostingDES2(newPostData);
+    
+    smallContainer.appendChild(newPostIMG)
+    smallContainer.appendChild(newPostDES)
+
+    bigContainer.appendChild(smallContainer)
+  }
+  else {
+    const errorData = await result.json();
+    console.error("Error creating post: ", errorData);
+  }
+  window.location.reload();
 });
+
+async function loadBookPosting2() {
+  const options = {
+    headers: {
+      Authorization: localStorage.getItem("token")
+    }
+  };
+
+  const response = await fetch("http://localhost:3000/books", options);
+
+  if (response.status == 200) {
+    const bookPosts = await response.json();
+    const bigContainer = document.getElementById("bigContainer");
+    
+    bookPosts.forEach(p => { //content
+      const smallContainer = document.createElement('div')
+      smallContainer.className = 'smallContainer'
+      
+      const bookIMG = createBookPostingIMG2(p)
+      const bookDES = createBookPostingDES2(p) 
+        
+      smallContainer.appendChild(bookIMG)
+      smallContainer.appendChild(bookDES)
+
+      bigContainer.appendChild(smallContainer)
+    });
+  }
+  else {
+    window.location.assign("./index.html");
+  }
+}
+
+loadBookPosting2();
+
+//////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////
+
+const dropArea = document.querySelector(".drag-area")
+const dragText = dropArea.querySelector("header")
+const button = dropArea.querySelector("button")
+const input = dropArea.querySelector("input")
+let file;
 
 dropArea.addEventListener("dragover", (event)=>{
   event.preventDefault();
@@ -100,6 +209,16 @@ dropArea.addEventListener("drop", (event)=>{
   event.preventDefault();
   file = event.dataTransfer.files[0];
   showFile();
+});
+
+button.onclick = ()=>{
+  input.click();
+}
+
+input.addEventListener("change", () =>{
+  file = this.files[0];
+  dropArea.classList.add("active");
+  showFile(); //calling function
 });
 
 function showFile(){
@@ -136,170 +255,69 @@ function closeEditForm() {
   document.getElementById("edit-form").style.display = "none";
 }
 
-async function handleDelete(data) { // allows deletion of items
-  const options = {
-      headers: {
-          Authorization: localStorage.getItem('token')
-      },
-      method: 'DELETE'
-  };
+// async function handleDelete(data) { // allows deletion of items
+//   const options = {
+//       headers: {
+//           Authorization: localStorage.getItem('token')
+//       },
+//       method: 'DELETE'
+//   };
 
-  if(data.user_id) {
-  const userResponse = window.confirm("Are you sure that you want to delete this entry?");
+//   if(data.user_id) {
+//   const userResponse = window.confirm("Are you sure that you want to delete this entry?");
   
-  if (userResponse) {
-      const response = await fetch(
-          `http://localhost:3000/books/${data['id']}`,
-          options
-      );
+//   if (userResponse) {
+//       const response = await fetch(
+//           `http://localhost:3000/books/${data['id']}`,
+//           options
+//       );
 
-      if (response.status === 204) {
-          window.location.reload();
-      } else {
-          const respData = await response.json();
-          alert(respData.error);
-      }
-  }
-}
-  else{
-      window.confirm('You cant delete this post')
-  }
-}
+//       if (response.status === 204) {
+//           window.location.reload();
+//       } else {
+//           const respData = await response.json();
+//           alert(respData.error);
+//       }
+//   }
+// }
+//   else{
+//       window.confirm('You cant delete this post')
+//   }
+// }
 
-async function handleEdit(data) {// edit content
-  openEditForm();
+// async function handleEdit(data) {// edit content
+//   openEditForm();
 
-  const acceptBtn = document.getElementById("accept");
-  const editContent = document.getElementById("editContent");
-  editContent.value = data.content // easily allows users to correct typos etc
+//   const acceptBtn = document.getElementById("accept");
+//   const editContent = document.getElementById("editContent");
+//   editContent.value = data.content // easily allows users to correct typos etc
 
-  acceptBtn.addEventListener('click', async (e) => {
-      e.preventDefault();
-
-
-      const options = {
-          method: "PATCH",
-          headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-              content: editContent.value
-          })
-      };
-      const userResponse = window.confirm("Are you sure that you want to edit this entry?");
-      if (userResponse) {
-      const response = await fetch(
-          `http://localhost:3000/books/${data['id']}`,options);
-
-      if (response.status === 200) {
-          closeEditForm();
-          window.location.reload();
-      } else {
-          const respData = await response.json();
-          alert(respData.error);
-      }
-  }
-  });
-}
-
-function createPostElement(data) {
-  const post = document.createElement("div");
-  post.className = "post";
-
-  const header = document.createElement("h1");
-  header.textContent = data["title"];
-  post.appendChild(header);
-
-  const author = document.createElement("h2")
-  author.textContent = data["author"]
-  post.appendChild(author);
-
-  const content = document.createElement("div");
-  content.innerHTML = data["content"].replace(/\n/g, '<br>'); // Replace newline characters with <br> tags
-  content.setAttribute("contenteditable", "true");
-  content.style.textAlign = "center"; // Center the text
-  post.appendChild(content);
-
-  const removeBtn = document.createElement("button");
-  removeBtn.className = "removeBtn";
-  removeBtn.textContent = "remove";
-
-  removeBtn.addEventListener('click', () => handleDelete(data));
-  post.appendChild(removeBtn);
-
-  const editBtn = document.createElement("button");
-  editBtn.className = "removeBtn";
-  editBtn.textContent = "edit";
-
-  editBtn.addEventListener('click', () => handleEdit(data));
-  post.appendChild(editBtn);
-
-  return post;
-}
+//   acceptBtn.addEventListener('click', async (e) => {
+//       e.preventDefault();
 
 
-document.getElementById("post-form").addEventListener("submit", async (e) => {
-  e.preventDefault();
+//       const options = {
+//           method: "PATCH",
+//           headers: {
+//               'Accept': 'application/json',
+//               'Content-Type': 'application/json'
+//           },
+//           body: JSON.stringify({
+//               content: editContent.value
+//           })
+//       };
+//       const userResponse = window.confirm("Are you sure that you want to edit this entry?");
+//       if (userResponse) {
+//       const response = await fetch(
+//           `http://localhost:3000/books/${data['id']}`,options);
 
-  const form = new FormData(e.target);
-
-  const options = {
-      method: "POST",
-      headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-          Authorization: localStorage.getItem('token')
-      },
-      body: JSON.stringify({
-          title: form.get("title"),
-          author: form.get("author"),
-          content: form.get("content")
-      })
-  };
-
-  const result = await fetch("http://localhost:3000/books", options);
-  closeForm();
-  
-  
-  if (result.status == 201) {
-      
-      // Parse the response to get the created post data
-      const newPostData = await result.json();
-      
-      // Create a new post element and append it to the container
-      const container = document.getElementById("posts");
-      const newPostElement = createPostElement(newPostData);
-      container.appendChild(newPostElement);
-  }
-  else {
-      const errorData = await result.json();
-      console.error("Error creating post:", errorData);
-  }
-  window.location.reload();
-});
-
-async function loadBooks() {
-  const options = {
-      headers: {
-          Authorization: localStorage.getItem("token")
-      }
-  };
-
-  const response = await fetch("http://localhost:3000/books", options);
-
-  if (response.status == 200) {
-      const posts = await response.json();
-
-      const container = document.getElementById("posts");
-
-      posts.forEach(p => { // posts content
-          const elem = createPostElement(p);
-          container.appendChild(elem);
-      });
-  } else {
-      window.location.assign("./index.html");
-  }
-}
-
-loadBooks();
+//       if (response.status === 200) {
+//           closeEditForm();
+//           window.location.reload();
+//       } else {
+//           const respData = await response.json();
+//           alert(respData.error);
+//       }
+//   }
+//   });
+// }
