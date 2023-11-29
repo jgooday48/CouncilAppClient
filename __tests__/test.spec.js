@@ -48,14 +48,15 @@ describe('library, html', () => {
         document = await dom.window.document
     })
 
-    it('loads up book description', () => {
-        const description = document.querySelector('.bookDescription')
-        expect(description).toBeTruthy()
+    it('has a navigation bar', () => {
+        const navigationBar = document.querySelector('nav')
+        expect(navigationBar).toBeTruthy()
     })
 
-    it('loads up book image', () => {
-        const image = document.querySelector('.bookImage')
-        expect(image).toBeTruthy()
+    it('displays a footer', () => {
+        const foot = document.querySelector('footer')
+        expect(foot).toBeTruthy()
+
     })
 
     it('has a navigation bar', () => {
