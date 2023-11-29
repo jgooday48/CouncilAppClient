@@ -23,7 +23,7 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
         localStorage.setItem("token", data.token)
         localStorage.setItem("user_id", data.user_id)
         console.log(data.user_id)
-        window.alert('You are logged in')
+        // window.alert('You are logged in')
         window.location.assign("index.html")
     } else {
         alert(data.error);
