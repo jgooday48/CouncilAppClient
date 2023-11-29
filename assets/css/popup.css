@@ -30,8 +30,8 @@
 .popupContainer .exitButton:active{
     width: 15px;
     height: 15px;
-    top: 8px;
-    right: 8px;
+    top: 7px;
+    right: 7px;
 }
 
 form{
@@ -83,7 +83,7 @@ form button:active{
 }
 
 .popupContainer#login{
-    display: flex;
+    display: none;
     align-items: center;
 }
 
