@@ -46,6 +46,7 @@ document.getElementById("registrationForm").addEventListener("submit", async (e)
                 
                 // Redirect to the desired page after successful login
                 window.location.assign("index.html");
+                alert('You are logged in. To return to the home page, click the logo in the top right corner.')
             } else {
                 alert(loginData.error);
             }
