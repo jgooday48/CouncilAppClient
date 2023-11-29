@@ -106,7 +106,7 @@ function createPostElement(data) {
 
     const removeBtn = document.createElement("button");
     removeBtn.className = "removeBtn";
-    removeBtn.textContent = "remove";
+    removeBtn.textContent = "delete";
 
     removeBtn.addEventListener('click', () => handleDelete(data));
     post.appendChild(removeBtn);

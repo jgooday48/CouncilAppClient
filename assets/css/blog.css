@@ -15,7 +15,7 @@ body {
 
 .container {
     display: flex;
-    height: 75vh;
+    height: 50vh;
     flex-wrap: wrap;
     align-content: flex-start;
     justify-content: center;
@@ -46,6 +46,14 @@ textarea {
 .but {
   display: flex;
   justify-content: center;
+}
+
+.removeBtn {
+  background-color: green;
+  color: white;
+  padding: 6px 5px;
+  cursor: pointer;
+  opacity: 0.8;
 }
 
 .newPostBtn {
