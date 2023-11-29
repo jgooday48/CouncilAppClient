@@ -4,17 +4,46 @@
     top: 50%;
     left: 50%;
     transform:translate(-50%, -50%);
+    padding: 20px 10px;
+    border-radius: 3%;
+    display: none;
 }
 
-.login{
+.popupContainer .exitButton{
+    position: absolute;
+    top: 5px;
+    right: 5px
+}
+
+form{
+    line-height: 30px;
+}
+
+form h3{
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+form label{
+    font-size: 15px;
+    margin-left: 5px;
+}
+form input{
+    margin: 5px;
+}
+
+form p{
+    margin-left: 5px;
+}
+
+.popupContainer#login{
     display: none;
-    padding: 20px;
     align-items: center;
 }
 
-.register{
+.popupContainer#register{
     display: none;
-    padding: 20px;
     align-items: center;
 }
 
