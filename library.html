@@ -20,16 +20,15 @@
     <nav class="navBar">
         <a href="index.html"><img class="navLogo" src="./assets/images/Florin County Logo.png" alt="Florin county council logo"></a>
         <ul class="itemList">
-            <li class="navItem"><a href="#">Marketplace</a></li>
+            <li class="navItem"><a href="marketplace.html">Marketplace</a></li>
             <li class="navItem"><a href="blog.html">Skills</a></li>
             <li class="navItem"><a href="#">Library</a></li>
-            <li class="navItem"><button id="openPopUp">MyAccount</button></li>
+            <li class="navItem"><button class="openButton" id="myAccount">MyAccount</button></li>
         </ul>
     </nav>
 </header> 
 
 <body>
-
     <div class="bigContainer" id="bigContainer"></div>
     
     <div class="drag-area">
@@ -39,6 +38,49 @@
         <button>Browse File</button>
         <input type="file" hidden>
     </div>
+
+    <div class="but">
+        <button class="newPostBtn" onclick="openForm()">Add a new Post</button>
+    </div>
+
+    <div class="form-popup" id="post-form">
+        <form class="form-container">
+            <h2>Post a knowledge and crafts post</h2>
+            <fieldset id="titleField">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" required>
+            </fieldset>
+
+            <fieldset id="author">
+                <label for="title">author:</label>
+                <input type="text" id="author" name="author" required>
+            </fieldset>
+
+            <fieldset>
+                <label for="title">Content:</label>
+                <textarea id="content" name="content" required></textarea>
+            </fieldset>
+            <input type="submit"  class="btn postBtn" value="Post" id="post">
+            <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
+        </form>
+    </div>
+
+
+    <div class="form-popup" id="edit-form">
+        <form class="form-container">
+            <h2>Edit your entry</h2>
+
+            <fieldset>
+                <label for="title">Content:</label>
+                <textarea id="editContent" name="content" required></textarea>
+            </fieldset>
+            <input type="submit"  class="btn acceptBtn" value="Accept" id="accept">
+            <button type="button" class="btn cancel" onclick="closeEditForm()">Cancel</button>
+        </form>
+    </div>
+
+    <div class="container" id="posts" style="overflow-y:scroll;"></div>
+    
 </body>
 
 <footer>
