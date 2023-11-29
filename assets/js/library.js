@@ -1,6 +1,6 @@
 
 let book1 = {
-    url: '',
+    url: '../images/book1.jpg',
     bookTitle: 'Of Mice and Men',
     author: 'John Steinbeck',
     description: "During the Great Depression in California, two migrant field workers - \
@@ -13,7 +13,7 @@ let book1 = {
     favorite stories, which George constantly retells."
 }
 let book2 = {
-    url: '',
+    url: '../images/book2.png',
     bookTitle: 'Holes',
     author: 'Louis Sacher',
     description: "Stanley Yelnats IV is wrongfully convicted of theft and as a \
@@ -57,14 +57,6 @@ async function loadBookPosting(data){
 
 loadBookPosting(book1)
 loadBookPosting(book2)
-
-
-
-
-
-
-
-
 
 const dropArea = document.querySelector(".drag-area"),
 dragText = dropArea.querySelector("header"),
