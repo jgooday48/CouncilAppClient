@@ -58,22 +58,15 @@ describe('library, html', () => {
         expect(foot).toBeTruthy()
 
     })
+
+    it('has a navigation bar', () => {
+        const navigationBar = document.querySelector('nav')
+        expect(navigationBar).toBeTruthy()
+    })
+
+    it('displays a footer', () => {
+        const foot = document.querySelector('footer')
+        expect(foot).toBeTruthy()
+
+    })
 })
-
-// describe('marketplace, html', () => {
-//     beforeEach(async () => {
-//         dom = await renderDOM('./marketplace.html')
-//         document = await dom.window.document
-//     })
-
-//     it('has a navigation bar', () => {
-//         const navigationBar = document.querySelector('nav')
-//         expect(navigationBar).toBeTruthy()
-//     })
-
-//     it('displays a footer', () => {
-//         const foot = document.querySelector('footer')
-//         expect(foot).toBeTruthy()
-
-//     })
-// })
