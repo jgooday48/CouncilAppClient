@@ -55,3 +55,238 @@
     align-items: center;
     font-size: 20px;
 }
+
+/*pop-up css
+
+/* Base styles for the pop-up */
+/* .pop-up {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    min-width: 400px;
+    height: 45vh;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: grid;
+    grid-template: 
+    'header'
+    'body'; */
+
+
+    /* grid-template: 
+    'post_name post_name '
+    'post_price post_conditions'
+    'post_location seller_details'
+    'post_description post_description';
+    overflow-y: hidden;
+    grid-template-rows: 2fr 1fr 2fr 5fr; */
+/* } */
+  
+
+/* .pop-header{
+    grid-area: header;
+    display: grid;
+}
+
+.close-button {
+    justify-self: end;
+    margin-top: -10px; 
+    font-size: 20px;
+    color: #666;
+    cursor: pointer;
+}
+
+.pop-body{
+    grid-area: body;
+} */
+
+
+
+  
+  
+  /* .post_name {
+    font-weight: bold;
+    background-color: pink;
+    grid-area: post_name;
+    display: grid;
+    text-align: center;
+    border: 1px solid gray;
+    align-items: center;
+    font-size: larger;
+  } */
+  
+  /* .post_price {
+    font-style: italic;
+    background-color: orange;
+    border: 1px solid gray;
+    grid-area: post_price;
+    padding-left: 5px;
+  }
+  
+  .post_conditions {
+    color: #333;
+    font-style: italic;
+    border: 1px solid gray;
+    background-color: brown;
+    padding-left: 5px;
+    grid-area: post_conditions;
+  }
+  
+  .post_location {
+    font-size: 14px;
+    border: 1px solid gray;
+    background-color: yellow;
+    padding-left: 5px;
+    grid-area: post_location;
+  }
+  
+  .seller_details {
+    font-size: 14px;
+    background-color: green;
+    border: 1px solid gray;
+    padding-left: 5px;
+    grid-area: seller_details;
+  }
+  
+  .post_description {
+    font-size: 16px;
+    background-color: gold;
+    grid-area: post_description;
+    padding-left: 5px;
+    border: 1px solid gray;
+    overflow: auto;
+  } */
+
+
+/*third try*/
+
+/* Pop-up container */
+#pop-up {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+    width: 50%;
+    min-width: 400px;
+    height: 45vh;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: grid;
+    grid-template-areas:
+      'header'
+      'body';
+    overflow-y: auto;
+    grid-template-rows: 1fr 5fr;
+}
+
+#pop-up.active{
+    transform: translate(-50%, -50%) scale(1);
+}
+  
+  /* Close button styles */
+.close-button {
+    justify-self: end;
+    font-size: 20px;
+    color: #666;
+    cursor: pointer;
+}
+  
+  /* Pop-up header */
+.pop-header {
+    grid-area: header;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    /* background-color: pink; */
+}
+  
+  /* Post name */
+.post_name {
+    padding-left: 4px;
+    font-weight: bold;
+    font-size: larger;
+}
+  
+  /* Pop-up body */
+.pop-body {
+    grid-area: body;
+    display: grid;
+    grid-gap: 10px;
+    grid-template:
+    'post_price post_conditions'
+    'post_location seller_details'
+    'post_description post_description';
+    grid-template-rows: 2fr 2fr 5fr;
+}
+  
+  
+.post_price {
+    font-style: italic;
+    /* background-color: orange; */
+    border: 1px solid gray;
+    grid-area: post_price;
+    padding-left: 5px;
+}
+  
+.post_conditions {
+    color: #333;
+    font-style: italic;
+    border: 1px solid gray;
+    /* background-color: brown; */
+    padding-left: 5px;
+    grid-area: post_conditions;
+}
+  
+.post_location {
+    font-size: 14px;
+    border: 1px solid gray;
+    /* background-color: yellow; */
+    padding-left: 5px;
+    grid-area: post_location;
+}
+  
+.seller_details {
+    font-size: 14px;
+    /* background-color: green; */
+    border: 1px solid gray;
+    padding-left: 5px;
+    grid-area: seller_details;
+}
+  
+.post_description {
+    font-size: 16px;
+    /* background-color: gold; */
+    grid-area: post_description;
+    padding-left: 5px;
+    border: 1px solid gray;
+    overflow: auto;
+}
+
+#overlay {
+    position: fixed;
+    opacity: 0;
+    transition: 200ms ease-in-out;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+}
+
+#overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
