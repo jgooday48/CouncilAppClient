@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./assets/css/header.css">
     <link rel="stylesheet" href="./assets/css/footer.css">
     <link rel="stylesheet" href="./assets/css/layout.css">
+    <link rel="stylesheet" href="./assets/css/popup.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="shortcut icon" href="./assets/images/fav.ico" type="image/x-icon">
@@ -29,42 +30,10 @@
 </header> 
 
 <body>
-    <div class="bigContainer" id="bigContainer"></div>
-    
-    <div class="drag-area">
-        <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
-        <header>Drag & Drop to Upload File</header>
-        <span>OR</span>
-        <button>Browse File</button>
-        <input type="file" hidden>
-    </div>
-
     <div class="but">
         <button class="newPostBtn" onclick="openForm()">Add a new Post</button>
+        <button class="editPostBtn" onclick="openEditForm()">Edit your post</button>
     </div>
-
-    <div class="form-popup" id="post-form">
-        <form class="form-container">
-            <h2>Post a knowledge and crafts post</h2>
-            <fieldset id="titleField">
-                <label for="title">Title:</label>
-                <input type="text" id="title" name="title" required>
-            </fieldset>
-
-            <fieldset id="author">
-                <label for="title">author:</label>
-                <input type="text" id="author" name="author" required>
-            </fieldset>
-
-            <fieldset>
-                <label for="title">Content:</label>
-                <textarea id="content" name="content" required></textarea>
-            </fieldset>
-            <input type="submit"  class="btn postBtn" value="Post" id="post">
-            <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
-        </form>
-    </div>
-
 
     <div class="form-popup" id="edit-form">
         <form class="form-container">
@@ -79,8 +48,39 @@
         </form>
     </div>
 
-    <div class="container" id="posts" style="overflow-y:scroll;"></div>
-    
+    <div class="bigContainer" id="bigContainer"></div>
+
+    <div class="form-popup" id="post-form">
+        <div class="drag-area">
+            <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
+            <header>Drag & Drop to Upload File</header>
+            <span>OR</span>
+            <button>Browse File</button>
+            <input type="file" hidden>
+        </div>
+
+        <form class="form-container">
+            <h2>Post a knowledge and crafts post</h2>
+            <fieldset id="titleField">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" required>
+            </fieldset>
+            
+            <fieldset id="author">
+                <label for="title">author:</label>
+                <input type="text" id="author" name="author" required>
+            </fieldset>
+            
+            <fieldset>
+                <label for="title">Content:</label>
+                <textarea id="content" name="content" required></textarea>
+            </fieldset>
+            
+            <input type="submit"  class="btn postBtn" value="Post" id="post">
+            <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
+        </form>
+
+    </div> 
 </body>
 
 <footer>
