@@ -22,6 +22,26 @@ describe('index, html', () => {
     })
 })
 
+describe('blog, html', () => {
+    beforeEach(async () => {
+        dom = await renderDOM('./blog.html')
+        document = await dom.window.document
+    })
+
+    it('has a navigation bar', () => {
+        const navigationBar = document.querySelector('nav')
+        expect(navigationBar).toBeTruthy()
+    })
+
+    it('displays form popup', () => {
+        const popup = document.querySelector('.login')
+        const popupBtn = document.querySelector('#post-form')
+
+        popupBtn.click()
+        expect(popup.style.display).toBe('block')
+    })
+})
+
 describe('library, html', () => {
     beforeEach(async () => {
         dom = await renderDOM('./library.html')
@@ -36,5 +56,16 @@ describe('library, html', () => {
     it('loads up book image', () => {
         const image = document.querySelector('.bookImage')
         expect(image).toBeTruthy()
+    })
+
+    it('has a navigation bar', () => {
+        const navigationBar = document.querySelector('nav')
+        expect(navigationBar).toBeTruthy()
+    })
+
+    it('displays a footer', () => {
+        const foot = document.querySelector('footer')
+        expect(foot).toBeTruthy()
+
     })
 })
