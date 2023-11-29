@@ -101,7 +101,7 @@ function createPostElement(data) {
     const content = document.createElement("div");
     content.innerHTML = data["content"].replace(/\n/g, '<br>'); // Replace newline characters with <br> tags
     content.setAttribute("contenteditable", "true");
-    content.style.textAlign = "center"; // Center the text
+    // content.style.textAlign = "center"; // Center the text
     post.appendChild(content);
 
     const removeBtn = document.createElement("button");

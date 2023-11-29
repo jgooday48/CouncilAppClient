@@ -37,6 +37,49 @@
         <button>Browse File</button>
         <input type="file" hidden>
     </div>
+
+    <div class="but">
+        <button class="newPostBtn" onclick="openForm()">Add a new Post</button>
+    </div>
+
+    <div class="form-popup" id="post-form">
+        <form class="form-container">
+            <h2>Post a knowledge and crafts post</h2>
+            <fieldset id="titleField">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" required>
+            </fieldset>
+
+            <fieldset id="author">
+                <label for="title">author:</label>
+                <input type="text" id="author" name="author" required>
+            </fieldset>
+
+            <fieldset>
+                <label for="title">Content:</label>
+                <textarea id="content" name="content" required></textarea>
+            </fieldset>
+            <input type="submit"  class="btn postBtn" value="Post" id="post">
+            <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
+        </form>
+    </div>
+
+
+    <div class="form-popup" id="edit-form">
+        <form class="form-container">
+            <h2>Edit your entry</h2>
+
+            <fieldset>
+                <label for="title">Content:</label>
+                <textarea id="editContent" name="content" required></textarea>
+            </fieldset>
+            <input type="submit"  class="btn acceptBtn" value="Accept" id="accept">
+            <button type="button" class="btn cancel" onclick="closeEditForm()">Cancel</button>
+        </form>
+    </div>
+
+    <div class="container" id="posts" style="overflow-y:scroll;"></div>
+    
 </body>
 
 <footer>
