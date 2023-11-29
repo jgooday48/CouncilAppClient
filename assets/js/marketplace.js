@@ -132,11 +132,15 @@ document.getElementById('post-board').addEventListener('click',async (e)=> {
         //display data on the pop-up
         const singlePost = await response.json();
         const popUp = document.querySelector("#pop-up");
+        const overlay = document.querySelector('#overlay');
         popUp.textContent = '';
         const haeder = createPostHeader(singlePost);
         popUp.appendChild(haeder);
         const body = createPostBody(singlePost);
         popUp.appendChild(body);
+        popUp.className = "active"
+        overlay.className = "active"
+
 
         console.log(`Post with ID ${postId} was clicked.`);
         // Perform actions specific to the clicked post
@@ -144,3 +148,12 @@ document.getElementById('post-board').addEventListener('click',async (e)=> {
 });
 
 
+const closeBtn = document.querySelector(".close-button")
+document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('close-button')) {
+        const popUp = document.querySelector("#pop-up");
+        const overlay = document.querySelector('#overlay');
+        popUp.classList.remove("active");
+        overlay.classList.remove("active");
+    }
+});
