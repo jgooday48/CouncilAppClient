@@ -21,7 +21,7 @@ body {
     justify-content: center;
     row-gap: 15px;
     padding: 45px;
-    max-width: 90%;
+    max-width: 75%;
     margin: auto;
 }
 
@@ -48,13 +48,32 @@ textarea {
   justify-content: center;
 }
 
-.removeBtn {
+/* .removeBtn {
+  top: 0;
+  right: 0;
   background-color: green;
   color: white;
-  padding: 6px 5px;
+  border: 1px;
+  padding: 4px 5px;
   cursor: pointer;
-  opacity: 0.8;
+} */
+
+ 
+
+
+
+
+.editBtn,
+.removeBtn {
+  margin-left: 5px; 
+  background-color: green;
+  color: white;
+  border: 1px;
+  padding: 4px 5px;
+  cursor: pointer;
 }
+
+
 
 .newPostBtn {
   background-color: blue;

@@ -104,20 +104,20 @@ function createPostElement(data) {
     // content.style.textAlign = "center"; // Center the text
     post.appendChild(content);
 
+    
+    const editBtn = document.createElement("button");
+    editBtn.className = "editBtn";
+    editBtn.textContent = "edit";
+    
+    editBtn.addEventListener('click', () => handleEdit(data));
+    post.appendChild(editBtn);
+    
     const removeBtn = document.createElement("button");
     removeBtn.className = "removeBtn";
     removeBtn.textContent = "delete";
 
     removeBtn.addEventListener('click', () => handleDelete(data));
     post.appendChild(removeBtn);
-
-    const editBtn = document.createElement("button");
-    editBtn.className = "removeBtn";
-    editBtn.textContent = "edit";
-
-    editBtn.addEventListener('click', () => handleEdit(data));
-    post.appendChild(editBtn);
-
     return post;
 }
 
