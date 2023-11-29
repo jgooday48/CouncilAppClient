@@ -22,7 +22,7 @@ async function handleDelete(data) { // allows deletion of items
         method: 'DELETE'
     };
 
-    if(data.user_id) {
+    if(data.user_id) { // only allow users to delete their own entries
     const userResponse = window.confirm("Are you sure that you want to delete this entry?");
     
     if (userResponse) {
@@ -58,26 +58,35 @@ async function handleEdit(data) {// edit content
         const options = {
             method: "PATCH",
             headers: {
-                'Accept': 'application/json',
+                Authorization: localStorage.getItem('token'),
+                Accept: 'application/json', 
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
                 content: editContent.value
             })
         };
-        const userResponse = window.confirm("Are you sure that you want to edit this entry?");
-        if (userResponse) {
-        const response = await fetch(
-            `http://localhost:3000/posts/${data['id']}`,options);
+        if(data.user_id) { 
+            const userResponse = window.confirm("Are you sure that you want to edit this entry?");
+            if (userResponse) {
+            const response = await fetch(
+                `http://localhost:3000/posts/${data['id']}`,options);
 
-        if (response.status === 200) {
-            closeEditForm();
-            window.location.reload();
-        } else {
-            const respData = await response.json();
-            alert(respData.error);
+                if (response.status === 200) {
+                closeEditForm();
+                window.location.reload();
+                } 
+                else {
+                    const respData = await response.json();
+                    alert(respData.error);
+                    closeEditForm();
+                }
+            }   
         }
-    }
+        else {
+            window.confirm('You cant edit this post')
+            closeEditForm();
+        }
     });
 }
 
