@@ -37,7 +37,7 @@
     color: rgb(1, 70, 1)
 }
 
-.navItem #openPopUp{
+.navItem #myAccount{
     color: aliceblue;
     opacity: 0.8;
     border: 0;
@@ -47,12 +47,12 @@
     background-color: black;
 }
 
-.navItem #openPopUp:hover{
+.navItem #myAccount:hover{
     cursor: pointer;
     opacity: 1;
     color: darkgreen;
 }
 
-.navItem #openPopUp:active{
+.navItem #myAccount:active{
     color: rgb(1, 70, 1)
 }

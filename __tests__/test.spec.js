@@ -21,3 +21,20 @@ describe('index, html', () => {
         expect(popup.style.display).toBe('flex')
     })
 })
+
+describe('library, html', () => {
+    beforeEach(async () => {
+        dom = await renderDOM('./library.html')
+        document = await dom.window.document
+    })
+
+    it('loads up book description', () => {
+        const description = document.querySelector('.bookDescription')
+        expect(description).toBeTruthy()
+    })
+
+    it('loads up book image', () => {
+        const image = document.querySelector('.bookImage')
+        expect(image).toBeTruthy()
+    })
+})

@@ -23,7 +23,7 @@ let book2 = {
 
 function createBookPosting(data){
     const imgBox = document.createElement('div')
-    imgBox.className = 'bookIMG'
+    imgBox.className = 'bookImage'
     const descriptionBox = document.createElement('div')
     descriptionBox.className = 'bookDescription'
 
