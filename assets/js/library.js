@@ -38,8 +38,8 @@ function createBookPostingDES(data){
   const bookTitle = document.createElement('h2')
   const author = document.createElement('h3')
   const description = document.createElement('p')
-  bookTitle.textContent = data.bookTitle
-  author.textContent = data.author
+  bookTitle.textContent = `Book Title: ${data.bookTitle}`
+  author.textContent = `Author(s): ${data.author}`
   description.textContent = data.description
 
   descriptionBox.appendChild(bookTitle)
@@ -93,10 +93,10 @@ function createBookPostingDES2(data){
   const author = document.createElement('h3')
   const description = document.createElement('p')
   
-  bookTitle.textContent = data.title
+  bookTitle.textContent = `Book Title: ${data.title}`
   descriptionBox.appendChild(bookTitle)
   
-  author.textContent = data.author
+  author.textContent = `Author(s): ${data.author}`
   descriptionBox.appendChild(author)
   
   description.textContent = data.content
