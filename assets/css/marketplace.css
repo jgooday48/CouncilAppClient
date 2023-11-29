@@ -5,7 +5,9 @@
     grid-template-columns: repeat(auto-fit, minmax(300px, 20vh)); /* Setting a minimum width of 300px per column */
     gap: 20px; /* Adjust the gap between grid items */
     margin: 5px;
-    
+    justify-content: space-evenly;
+    padding-top: 20px;
+    padding-bottom: 20px;    
     
 }
 
@@ -289,4 +291,54 @@
 #overlay.active {
     opacity: 1;
     pointer-events: all;
+}
+
+/* editor bar */
+
+.post-edit{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    height: 10vh
+}
+
+.page-name{
+    padding-left: 20px;
+
+    background-color: bisque;
+}
+
+.page-name,
+.editor {
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    background-color: bisque; /* Change background color as needed */
+}
+
+.editor{
+    background-color: violet;
+    justify-content:space-evenly;
+}
+
+/* Styling for create-btn, update-btn, and destroy-btn */
+#create-btn,
+#update-btn,
+#destroy-btn {
+    display: block;
+    margin: 10px;
+    padding: 12px 20px;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #3498db;
+    color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+#create-btn:hover,
+#update-btn:hover,
+#destroy-btn:hover {
+    background-color: #2980b9;
 }
