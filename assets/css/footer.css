@@ -25,6 +25,7 @@ footer{
 
 .mediaIcons a i:hover{
     opacity: 1;
+    color: darkgreen;
 }
 
 .footerNavBar ul {
@@ -40,7 +41,9 @@ footer{
 
 .footerNavBar ul li a:hover{
     opacity: 1;
+    color: darkgreen;
 }
 .footerBottom{
     margin-top: 20px;
+    color: darkgreen;
 }
