@@ -18,12 +18,12 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
     const response = await fetch("http://localhost:3000/users/login", options);
     const data = await response.json();
 
-    if (response.status == 200) {
+    if (response.status === 200) {
 
         localStorage.setItem("token", data.token)
         localStorage.setItem("user_id", data.user_id)
         console.log(data.user_id)
-        // window.alert('You are logged in')
+        window.alert('You are logged in')
         window.location.assign("index.html")
     } else {
         alert(data.error);
