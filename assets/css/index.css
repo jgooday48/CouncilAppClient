@@ -1,68 +1,3 @@
-*{
-    box-sizing: border-box;
-    margin: 0;
-    font-family: 'Cousine', monospace;
-
-}
-
-ul{
-    list-style-type: none;
-}
-
-a{
-    text-decoration: none;
-}
-
-.navBar{
-    background-color: black;
-    position: sticky;
-    width: 100%;
-    height: 140px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-}
-
-.navLogo{
-    width: 180px;
-    height: 140px;
-}
-
-.itemList{
-    list-style: none;
-    display: inline-flex;
-    align-items: center;
-}
-
-.navItem a{
-    color: aliceblue;
-    margin-right: 20px;
-    padding: 15px;
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.navItem a:hover{
-    background-color: darkgreen;
-}
-
-.navItem #openPopUp{
-    color: aliceblue;
-    border: 0;
-    padding: 15px;
-    margin-right: 20px;
-    font-size: 20px;
-    font-weight: bold;
-    background-color: black;
-}
-
-.navItem #openPopUp:hover{
-    cursor: pointer;
-    background-color: darkgreen;
-
-}
-
 .banner{
     color: white;
     display: flex;
@@ -81,30 +16,6 @@ a{
 
 .container{
     background-color: red;
-}
-
-.popupContainer{
-    background-color: antiquewhite;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform:translate(-50%, -50%);
-}
-
-.login{
-    display: none;
-    padding: 20px;
-    align-items: center;
-}
-
-.register{
-    display: none;
-    padding: 20px;
-    align-items: center;
-}
-
-form{
-    padding: 0px 5px 0px 5px;
 }
 
 .communityStatmentContainer{
@@ -133,51 +44,4 @@ form{
 
 .initiative{
     background-color: blueviolet;
-}
-
-footer{
-    background-color: black;
-    width: 100%;
-    padding: 20px;
-    color: aliceblue;
-    text-align: center;
-}
-
-.mediaIcons{
-    display: flex;
-    justify-content: center;
-}
-
-.mediaIcons a{
-    padding: 10px;
-    margin: 10px;
-    /* background-color: darkgreen; */
-}
-
-.mediaIcons a i{
-    opacity: 0.8;
-    color: aliceblue;
-    font-size: larger;
-}
-
-.mediaIcons a i:hover{
-    opacity: 1;
-}
-
-.footerNavBar ul {
-    display: flex;
-    justify-content: center;
-}
-
-.footerNavBar ul li a{
-    opacity: 0.6;
-    color: aliceblue;
-    margin: 15px;
-}
-
-.footerNavBar ul li a:hover{
-    opacity: 1;
-}
-.footerBottom{
-    margin-top: 20px;
 }

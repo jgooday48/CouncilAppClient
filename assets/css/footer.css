@@ -1,0 +1,46 @@
+footer{
+    background-color: black;
+    margin-top: auto;
+    width: 100%;
+    padding: 20px;
+    color: aliceblue;
+    text-align: center;
+}
+
+.mediaIcons{
+    display: flex;
+    justify-content: center;
+}
+
+.mediaIcons a{
+    padding: 10px;
+    margin: 10px;
+}
+
+.mediaIcons a i{
+    opacity: 0.8;
+    color: aliceblue;
+    font-size: larger;
+}
+
+.mediaIcons a i:hover{
+    opacity: 1;
+}
+
+.footerNavBar ul {
+    display: flex;
+    justify-content: center;
+}
+
+.footerNavBar ul li a{
+    opacity: 0.6;
+    color: aliceblue;
+    margin: 15px;
+}
+
+.footerNavBar ul li a:hover{
+    opacity: 1;
+}
+.footerBottom{
+    margin-top: 20px;
+}
