@@ -25,7 +25,7 @@ function createBookPostingIMG(data){
     imgBox.className = 'bookImage'
     const img = document.createElement('img')
     img.src = data.link
-    img.alt = 'image not found'
+    img.alt = './assets/images.defaultBook.png'
 
     imgBox.appendChild(img)
 
@@ -72,13 +72,14 @@ loadBookPosting(book2)
 //////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////
 
-function createBookPostingIMG2(data) {
+function createBookPostingIMG2(imageSRC) {
   const imgBox = document.createElement('div')
   imgBox.className = 'bookImage'
   
   const img = document.createElement('img')
-  img.src = ''
-  img.alt = 'image not found'
+  
+  img.src = './assets/images/defaultBook.png'
+  img.alt = 'not found'
   
   imgBox.appendChild(img)
   return imgBox
@@ -129,13 +130,14 @@ document.getElementById("post-form").addEventListener("submit", async (e) => {
   if (result.status == 201) {
     // Parse the response to get the created post data
     const newPostData = await result.json();
+    const newImgData = null
       
     // Create a new post element and append it to the container
     const bigContainer = document.getElementById("bigContainer");
     const smallContainer = document.createElement('div')
     smallContainer.className = 'smallContainer'
 
-    const newPostIMG = createBookPostingIMG2(newPostData);
+    const newPostIMG = createBookPostingIMG2(newImgData);
     const newPostDES = createBookPostingDES2(newPostData);
     
     smallContainer.appendChild(newPostIMG)
@@ -255,35 +257,35 @@ function closeEditForm() {
   document.getElementById("edit-form").style.display = "none";
 }
 
-// async function handleDelete(data) { // allows deletion of items
-//   const options = {
-//       headers: {
-//           Authorization: localStorage.getItem('token')
-//       },
-//       method: 'DELETE'
-//   };
+async function handleDelete(data) { // allows deletion of items
+  const options = {
+      headers: {
+          Authorization: localStorage.getItem('token')
+      },
+      method: 'DELETE'
+  };
 
-//   if(data.user_id) {
-//   const userResponse = window.confirm("Are you sure that you want to delete this entry?");
+  if(data.user_id) {
+  const userResponse = window.confirm("Are you sure that you want to delete this entry?");
   
-//   if (userResponse) {
-//       const response = await fetch(
-//           `http://localhost:3000/books/${data['id']}`,
-//           options
-//       );
+  if (userResponse) {
+      const response = await fetch(
+          `http://localhost:3000/books/${data['id']}`,
+          options
+      );
 
-//       if (response.status === 204) {
-//           window.location.reload();
-//       } else {
-//           const respData = await response.json();
-//           alert(respData.error);
-//       }
-//   }
-// }
-//   else{
-//       window.confirm('You cant delete this post')
-//   }
-// }
+      if (response.status === 204) {
+          window.location.reload();
+      } else {
+          const respData = await response.json();
+          alert(respData.error);
+      }
+  }
+}
+  else{
+      window.confirm('You cant delete this post')
+  }
+}
 
 // async function handleEdit(data) {// edit content
 //   openEditForm();
