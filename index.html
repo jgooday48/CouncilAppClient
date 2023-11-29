@@ -12,10 +12,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
     <link rel="stylesheet" href="./assets/css/index.css">
-    <script src="./assets/js/index.js" defer></script>
+
+    <script src="./assets/js/popup.js" defer></script>
     <script src="./assets/js/login.js" defer></script>
     <script src="./assets/js/register.js" defer></script>
     <!-- <script src="./assets/js/logout.js" defer></script> -->
+
     <title>Florin Council</title>
 </head>
 
@@ -26,7 +28,7 @@
             <li class="navItem"><a href="#">Marketplace</a></li>
             <li class="navItem"><a href="blog.html">Skills</a></li>
             <li class="navItem"><a href="library.html">Library</a></li>
-            <li class="navItem"><button id="openPopUp">MyAccount</button></li>
+            <li class="navItem"><button class="openButton" id="myAccount">MyAccount</button></li>
         </ul>
     </nav>
 </header>
@@ -35,63 +37,52 @@
     <div class="banner"><h1>Florin Council</h1></div>
     
     <main>
-        <div class="container">
-            <div class="popupContainer">
-                <div class="login">
-                    <button id="exitBtn">&times;</button>
-                    <form id="loginForm">
-                        <fieldset>
-                            <legend> Login details </legend>
-                            <label for="email">email: </label><br>
-                            <input type="text" id="email" name="email" required><br>
-    
-                            <label for="password">password: </label><br>
-                            <input type="password" id="password" name="password" required><br>
-                        </fieldset>
-                        <input type="submit" value="Log in">
-                        <p>No account? <button id="openRegister">register here</button></p>
-                    </form>
-                </div>
-                <div class="register">
-                    <button id="exitBtn2">&times;</button>
-                    <form id="registrationForm">
-                        <fieldset>
-                            <legend> Name </legend>
-                            <label for="name">firstname</label> <br>
-                            <input type="text" id="name" name="name" required> <br>
-                            <label for="surname">surname</label> <br>
-                            <input type="text" id="surname" name="surname" required> <br>
-                        </fieldset>
-                        <fieldset>
-                            <legend> Details </legend>
-                            <label for="email">email</label><br>
-                            <input type="text" id="registerEmail" name="email" required><br>
-                            <label for="password">password</label><br>
-                            <input type="password" id="registerPassword" name="password" required><br>
+        <div class="popupContainer" id="login">
+                <button class="exitButton">&times;</button>
+                <form id="loginForm">
+                    <h3>Login</h3>
+                    <label for="email">Email</label>
+                    <input type="text" id="email" placeholder="email"><br>
 
-                        </fieldset>
-                        <!-- <button type="submit">Register</button> -->
-                        <input type="submit" value="Register">
-                    </form>
-                </div>
-            </div>
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="password"><br>
+                    
+                    <input type="submit" value="Sign in">
+                    <p>No account? <button class="openButton" id="openRegister">register here</button></p>
+                </form>
+        </div>
+
+        <div class="popupContainer" id="register">
+                <button class="exitButton">&times;</button>
+                <form id="registrationForm">
+                        <h3>Name</h3>
+                        <label for="name">Firstname</label>
+                        <input type="text" id="name" name="name"> <br>
+                        <label for="surname">Surname</label>
+                        <input type="text" id="surname" name="surname"> <br>
+
+                        <h3>Details</h3>
+                        <label for="email">Email</label>
+                        <input type="text" id="registerEmail" name="email"><br>
+                        <label for="password">Password</label>
+                        <input type="password" id="registerPassword" name="password"><br>
+
+                    <input type="submit" value="Register">
+                </form>
         </div>
 
         <div class="communityStatmentContainer">
-            <h2>Communtiy Statment</h2>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit, nostrum voluptatibus minima illo labore neque voluptate fuga vero, atque voluptates illum debitis aut veniam saepe reiciendis? Recusandae iure nostrum tenetur.
-            Ipsam obcaecati, esse ducimus veritatis vitae tempore temporibus, aliquam veniam quas, earum placeat ipsa. Repudiandae incidunt perspiciatis id! Voluptatum consequatur quasi neque sapiente, a quidem. Quos molestiae nesciunt minima blanditiis?
-            Veniam velit rem et culpa vitae corrupti harum, enim totam nesciunt neque laudantium consequuntur nulla expedita maxime voluptas omnis, soluta reprehenderit libero distinctio deleniti inventore pariatur alias eum nostrum? Nam.
-            Quam animi. Recusandae hic aliquid suscipit?</p>
-        </div>
-
-        <div class="container">
-            <h2>Initiatives</h2>
-            <div class="initiativeContainer" id="initiatives"></div>
+            <div class="statement">
+                <h2>Communtiy Statment</h2>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                    Impedit, nostrum voluptatibus minima illo labore neque 
+                    voluptate fuga vero, atque voluptates illum debitis aut 
+                    veniam saepe reiciendis? Recusandae iure nostrum tenetur.
+                    obcaecati, esse ducimus veritatis vitae tempore temporibus</p>
+            </div>
         </div>
     </main>
 </body>
-
 
 <footer>
     <div class="mediaIcons">
