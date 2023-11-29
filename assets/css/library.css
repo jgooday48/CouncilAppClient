@@ -1,10 +1,18 @@
 .bigContainer{
-    background-color: aqua;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* margin: 10px; */
+  background-color: aqua;
 }
 
+.smallContainer{
+  background-color: red;
+  margin: 10px;
+  display: flex;
+}
+
+<<<<<<< HEAD
 .bookIMG{
     background-color: blue;
     margin: 10px;
@@ -20,289 +28,196 @@
     margin: 10px;
     /* width: 250px;
     height: 300px; */
+=======
+.bookImage{
+  background-color: blue;
+  margin: 10px;
+  width: 33%;
+  height: 380px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+.bookImage img{
+  background-color: lightcyan;
+  margin: 10px;
+>>>>>>> b3a1ef7b6722e10865b035b4e9d8260b5a176795
 }
 
 .bookDescription{
-    background-color: purple;
-    margin: 10px;
-    width: 66%;
-    height: 380px
+  background-color: purple;
+  margin: 10px;
+  width: 66%;
+  height: 380px
 }
 
 .bookDescription h2{
-    background-color: aliceblue;
-    /* text-align: center; */
-    margin: 5px;
-    padding: 5px
+  background-color: aliceblue;
+  margin: 5px;
+  padding: 5px
 }
 
 .bookDescription h3{
-    background-color: bisque;
-    margin: 5px;
-    padding: 5px
+  background-color: bisque;
+  margin: 5px;
+  padding: 5px
 }
 
 .bookDescription p{
-    background-color: pink;
-    margin: 30px 5px 5px 5px;
-    padding: 5px;
+  background-color: pink;
+  margin: 30px 5px 5px 5px;
+  padding: 5px;
 }
 
-.drag-area{
-    border: 2px dashed #fff;
-    height: 500px;
-    width: 700px;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-  }
-  .drag-area.active{
-    border: 2px solid #fff;
-  }
-  .drag-area .icon{
-    font-size: 100px;
-    color: #fff;
-  }
-  .drag-area header{
-    font-size: 30px;
-    font-weight: 500;
-    color: #fff;
-  }
-  .drag-area span{
-    font-size: 25px;
-    font-weight: 500;
-    color: #fff;
-    margin: 10px 0 15px 0;
-  }
-  .drag-area button{
-    padding: 10px 25px;
-    font-size: 20px;
-    font-weight: 500;
-    border: none;
-    outline: none;
-    background: #fff;
-    color: #5256ad;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  .drag-area img{
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    border-radius: 5px;
-  }
+/* ///////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////// */
 
-  .bigContainer {
-    background-color: aqua;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .bookIMG {
-    background-color: blue;
-    margin: 10px;
-    width: 33%;
-    height: 380px;
-    display: flex;
-    align-content: center;
-    justify-content: center;
-  }
-  
-  .bookIMG img {
-    background-color: lightcyan;
-    margin: 10px;
-    min-width: 250px;
-    min-height: 300px;
-  }
-  
-  .bookDescription {
-    background-color: purple;
-    margin: 10px;
-    width: 66%;
-    height: 380px
-  }
-  
-  .bookDescription h2 {
-    background-color: aliceblue;
-    /* text-align: center; */
-    margin: 5px;
-    padding: 5px
-  }
-  
-  .bookDescription h3 {
-    background-color: bisque;
-    margin: 5px;
-    padding: 5px
-  }
-  
-  .bookDescription p {
-    background-color: pink;
-    margin: 30px 5px 5px 5px;
-    padding: 5px;
-  }
-  
-  .drag-area {
-    border: 2px dashed #fff;
-    height: 500px;
-    width: 700px;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-  }
-  
-  .drag-area.active {
-    border: 2px solid #fff;
-  }
-  
-  .drag-area .icon {
-    font-size: 100px;
-    color: #fff;
-  }
-  
-  .drag-area header {
-    font-size: 30px;
-    font-weight: 500;
-    color: #fff;
-  }
-  
-  .drag-area span {
-    font-size: 25px;
-    font-weight: 500;
-    color: #fff;
-    margin: 10px 0 15px 0;
-  }
-  
-  .drag-area button {
-    padding: 10px 25px;
-    font-size: 20px;
-    font-weight: 500;
-    border: none;
-    outline: none;
-    background: #fff;
-    color: #5256ad;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .drag-area img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    border-radius: 5px;
-  }
-  
-  header,
-  p,
-  h1, h2 {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .container {
-    display: flex;
-    height: 75vh;
-    flex-wrap: wrap;
-    align-content: flex-start;
-    justify-content: center;
-    row-gap: 15px;
-    padding: 45px;
-    max-width: 1000px;
-    margin: auto;
-  }
-  
-  .post {
-    width: 90vw;
-    padding: 15px;
-    border-radius: 20px;
-    border-style: double;
-  }
-  
-  textarea {
-    width: 300px;
-    height: 150px;
-    display: flex;
-    justify-content: center;
-  }
-  
-  body {
-    font-family: Arial, Helvetica, sans-serif;
-  }
-  
-  * {
-    box-sizing: border-box;
-  }
-  
-  .but {
-    display: flex;
-    justify-content: center;
-    /* text-align: center;
-    align-items: center; */
-  }
-  
-  .newPostBtn {
-    background-color: green;
-    color: white;
-    padding: 16px 20px;
-    border: none;
-    cursor: pointer;
-    opacity: 0.8;
-    width: 250px;
-  }
-  
-  
-  .form-popup {
-    display: none;
-    position: fixed;
-    top: 20vh;
-    right: 35vw;
-    border: 3px solid #f1f1f1;
-  }
-  
-  .form-container {
-    width: 500px;
-    padding: 20px;
-    background-color: white;
-  }
-  
-  
-  .form-container input[type=text],
-  textarea {
-    width: 100%;
-    padding: 15px;
-    margin: 5px 0 22px 0;
-    border: none;
-    background: #f1f1f1;
-  }
-  
-  
-  .form-container input[type=text]:focus,
-  textarea:focus {
-    background-color: #ddd;
-    outline: none;
-  }
-  
-  .form-container .btn {
-    background-color: rgb(49, 44, 44);
-    color: white;
-    padding: 16px 20px;
-    border: none;
-    cursor: pointer;
-    width: 90%;
-    margin-left: 5%;
-    margin-top: 20px;
-    opacity: 0.8;
-  }
-  
-  .form-container .cancel {
-    background-color: rgb(49, 44, 44);
-  }
-  
-  .form-container .btn:hover,
-  .newPostBtn:hover {
-    opacity: 1;
-  }
+.newPostBtn {
+  background-color: green;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  width: 250px;
+}
+
+.but {
+  display: flex;
+  justify-content: center;
+  /* text-align: center;
+  align-items: center; */
+}
+
+.form-container .btn:hover,
+.newPostBtn:hover {
+  opacity: 1;
+}
+
+.form-popup .drag-area{
+  background-color: darkgreen;
+  border: 3px dashed black;
+  height: 400px;
+  width: 600px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.form-popup .drag-area.active{
+  border: 2px solid #fff;
+}
+
+.form-popup .drag-area .icon{
+  font-size: 100px;
+  color: #fff;
+}
+
+.form-popup .drag-area header{
+  font-size: 30px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.form-popup .drag-area span{
+  font-size: 25px;
+  font-weight: 500;
+  color: #fff;
+  margin: 10px 0 15px 0;
+}
+
+.form-popup .drag-area button{
+  padding: 10px 25px;
+  font-size: 20px;
+  font-weight: 500;
+  border: none;
+  outline: none;
+  background: rgb(1, 49, 1);
+  color: aliceblue;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form-popup .drag-area img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.container {
+  display: flex;
+  height: 75vh;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: center;
+  row-gap: 15px;
+  padding: 45px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.post {
+  width: 90vw;
+  padding: 15px;
+  border-radius: 20px;
+  border-style: double;
+}
+
+textarea {
+  width: 300px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+}
+
+.form-popup {
+  display: none;
+  position: fixed;
+  top: 20vh;
+  right: 35vw;
+  border: 3px solid #f1f1f1;
+}
+
+.form-container {
+  width: 500px;
+  padding: 20px;
+  background-color: white;
+}
+
+
+.form-container input[type=text],
+textarea {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+
+.form-container input[type=text]:focus,
+textarea:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+.form-container .btn {
+  background-color: rgb(49, 44, 44);
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 20px;
+  opacity: 0.8;
+}
+
+.form-container .cancel {
+  background-color: rgb(49, 44, 44);
+}
