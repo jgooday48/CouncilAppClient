@@ -1,6 +1,6 @@
 
 let book1 = {
-    url: '../images/book1.jpg',
+    link: './assets/images/book1.jpg',
     bookTitle: 'Of Mice and Men',
     author: 'John Steinbeck',
     description: "During the Great Depression in California, two migrant field workers - \
@@ -13,7 +13,7 @@ let book1 = {
     favorite stories, which George constantly retells."
 }
 let book2 = {
-    url: '../images/book2.png',
+    link: './assets/images/book2.png',
     bookTitle: 'Holes',
     author: 'Louis Sacher',
     description: "Stanley Yelnats IV is wrongfully convicted of theft and as a \
@@ -21,38 +21,49 @@ let book2 = {
 }
 
 
-function createBookPosting(data){
+function createBookPostingIMG(data){
     const imgBox = document.createElement('div')
     imgBox.className = 'bookImage'
-    const descriptionBox = document.createElement('div')
-    descriptionBox.className = 'bookDescription'
-
     const img = document.createElement('img')
-    const bookTitle = document.createElement('h2')
-    const author = document.createElement('h3')
-    const description = document.createElement('p')
-
-    img.src = data.url
+    img.src = data.link
     img.alt = 'image not found'
-    bookTitle.textContent = data.bookTitle
-    author.textContent = data.author
-    description.textContent = data.description
 
     imgBox.appendChild(img)
 
-    descriptionBox.appendChild(bookTitle)
-    descriptionBox.appendChild(author)
-    descriptionBox.appendChild(description)
+    return imgBox
+}
 
-    return imgBox, descriptionBox
+function createBookPostingDES(data){
+  const descriptionBox = document.createElement('div')
+  descriptionBox.className = 'bookDescription'
+  const bookTitle = document.createElement('h2')
+  const author = document.createElement('h3')
+  const description = document.createElement('p')
+  bookTitle.textContent = data.bookTitle
+  author.textContent = data.author
+  description.textContent = data.description
+
+  descriptionBox.appendChild(bookTitle)
+  descriptionBox.appendChild(author)
+  descriptionBox.appendChild(description)
+
+  return descriptionBox
 }
 
 
 async function loadBookPosting(data){
-    const container = document.getElementById('bigContainer')
+    const bigContainer = document.getElementById('bigContainer')
+    const smallContainer = document.createElement('div')
+    smallContainer.className = 'smallContainer'
 
-    const bookPosting = createBookPosting(data)
-    container.appendChild(bookPosting)
+    const bookIMG = createBookPostingIMG(data)
+    const bookDES = createBookPostingDES(data)
+
+    smallContainer.appendChild(bookIMG)
+    smallContainer.appendChild(bookDES)
+
+    bigContainer.appendChild(smallContainer)
+    
 }
 
 loadBookPosting(book1)
