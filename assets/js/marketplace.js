@@ -226,6 +226,7 @@ patchForm.addEventListener('submit', async (e) => {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',
+            'Authorization': localStorage.getItem("token")
         },
         body: JSON.stringify(patchData)
     };
@@ -257,7 +258,7 @@ createForm.addEventListener('submit', async (e) => {
     const formData = new FormData(e.target);
     const postData = {
         post_name: formData.get('name'),
-        user_id: 2,
+        // user_id: formData.get(''),
         conditions: formData.get('conditions'),
         description: formData.get('description'),
         location: formData.get('location'),
@@ -268,6 +269,7 @@ createForm.addEventListener('submit', async (e) => {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
+            'Authorization': localStorage.getItem("token")
             // You may add additional headers if required
         },
         body: JSON.stringify(postData)

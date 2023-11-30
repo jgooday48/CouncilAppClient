@@ -4,37 +4,83 @@
     top: 50%;
     left: 50%;
     transform:translate(-50%, -50%);
-    padding: 20px 10px;
-    border-radius: 3%;
+    padding: 15px 10px;
+    border: 1px solid black;
     display: none;
+    z-index: 10002;
 }
 
 .popupContainer .exitButton{
     position: absolute;
-    top: 5px;
-    right: 5px
+    top: 7px;
+    right: 7px;
+    width: 18px;
+    height: 18px;
+    background-color: black;
+    color: aliceblue;
+    font-size: 15px;
+    text-align: center;
+    line-height: 1px;
+    
+}
+
+.popupContainer .exitButton:hover{
+    color: darkgreen;
+}
+
+.popupContainer .exitButton:active{
+    width: 15px;
+    height: 15px;
+    top: 7px;
+    right: 7px;
 }
 
 form{
-    line-height: 30px;
+
 }
 
 form h3{
     text-align: center;
     font-size: 22px;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
 }
 
 form label{
     font-size: 15px;
-    margin-left: 5px;
-}
-form input{
-    margin: 5px;
 }
 
-form p{
-    margin-left: 5px;
+form input[type='text'],
+form input[type='password']{
+    display: block;
+    margin-top: 3px;
+    width: 100%;
+    height: 25px;
+    padding: 5px;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+form input[type='submit'],
+form button{
+    width: 100%;
+    height:30px;
+    margin-bottom: 5px;
+    border: none;
+    border-radius: 5px;
+    color: aliceblue;
+    background-color: black;
+    cursor: pointer;
+}
+
+form input[type='submit']:hover,
+form button:hover{
+    color: darkgreen;
+}
+
+form input[type='submit']:active,
+form button:active{
+    margin-top: 3px;
+    height:27px;
 }
 
 .popupContainer#login{

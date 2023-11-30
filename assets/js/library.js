@@ -25,7 +25,7 @@ function createBookPostingIMG(data){
     imgBox.className = 'bookImage'
     const img = document.createElement('img')
     img.src = data.link
-    img.alt = 'image not found'
+    img.alt = './assets/images.defaultBook.png'
 
     imgBox.appendChild(img)
 
@@ -38,8 +38,8 @@ function createBookPostingDES(data){
   const bookTitle = document.createElement('h2')
   const author = document.createElement('h3')
   const description = document.createElement('p')
-  bookTitle.textContent = data.bookTitle
-  author.textContent = data.author
+  bookTitle.textContent = `Book Title: ${data.bookTitle}`
+  author.textContent = `Author(s): ${data.author}`
   description.textContent = data.description
 
   descriptionBox.appendChild(bookTitle)
@@ -77,8 +77,9 @@ function createBookPostingIMG2(data) {
   imgBox.className = 'bookImage'
   
   const img = document.createElement('img')
-  img.src = ''
-  img.alt = 'image not found'
+  console.log()
+  img.src = data.link
+  img.alt = 'NO IMAGE PROVIDED'
   
   imgBox.appendChild(img)
   return imgBox
@@ -92,10 +93,10 @@ function createBookPostingDES2(data){
   const author = document.createElement('h3')
   const description = document.createElement('p')
   
-  bookTitle.textContent = data.title
+  bookTitle.textContent = `Book Title: ${data.title}`
   descriptionBox.appendChild(bookTitle)
   
-  author.textContent = data.author
+  author.textContent = `Author(s): ${data.author}`
   descriptionBox.appendChild(author)
   
   description.textContent = data.content
@@ -119,7 +120,8 @@ document.getElementById("post-form").addEventListener("submit", async (e) => {
     body: JSON.stringify({
       title: form.get("title"),
       author: form.get("author"),
-      content: form.get("content")
+      content: form.get("content"),
+      link: form.get('link')
     })
   };
 
@@ -188,56 +190,56 @@ loadBookPosting2();
 //////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////
 
-const dropArea = document.querySelector(".drag-area")
-const dragText = dropArea.querySelector("header")
-const button = dropArea.querySelector("button")
-const input = dropArea.querySelector("input")
-let file;
+// const dropArea = document.querySelector(".drag-area")
+// const dragText = dropArea.querySelector("header")
+// const button = dropArea.querySelector("button")
+// const input = dropArea.querySelector("input")
+// let file;
 
-dropArea.addEventListener("dragover", (event)=>{
-  event.preventDefault();
-  dropArea.classList.add("active");
-  dragText.textContent = "Release to Upload File";
-});
+// dropArea.addEventListener("dragover", (event)=>{
+//   event.preventDefault();
+//   dropArea.classList.add("active");
+//   dragText.textContent = "Release to Upload File";
+// });
 
-dropArea.addEventListener("dragleave", ()=>{
-  dropArea.classList.remove("active");
-  dragText.textContent = "Drag & Drop to Upload File";
-});
+// dropArea.addEventListener("dragleave", ()=>{
+//   dropArea.classList.remove("active");
+//   dragText.textContent = "Drag & Drop to Upload File";
+// });
 
-dropArea.addEventListener("drop", (event)=>{
-  event.preventDefault();
-  file = event.dataTransfer.files[0];
-  showFile();
-});
+// dropArea.addEventListener("drop", (event)=>{
+//   event.preventDefault();
+//   file = event.dataTransfer.files[0];
+//   showFile();
+// });
 
-button.onclick = ()=>{
-  input.click();
-}
+// button.onclick = ()=>{
+//   input.click();
+// }
 
-input.addEventListener("change", () =>{
-  file = this.files[0];
-  dropArea.classList.add("active");
-  showFile(); //calling function
-});
+// input.addEventListener("change", () =>{
+//   file = this.files[0];
+//   dropArea.classList.add("active");
+//   showFile(); //calling function
+// });
 
-function showFile(){
-  let fileType = file.type;
-  let validExtensions = ["image/jpeg", "image/jpg", "image/png"];
-  if(validExtensions.includes(fileType)){
-    let fileReader = new FileReader();
-    fileReader.onload = ()=>{
-      let fileURL = fileReader.result;
-      let imgTag = `<img src="${fileURL}" alt="image">`;
-      dropArea.innerHTML = imgTag;
-    }
-    fileReader.readAsDataURL(file);
-  }else{
-    alert("This is not an Image File!");
-    dropArea.classList.remove("active");
-    dragText.textContent = "Drag & Drop to Upload File";
-  }
-}
+// function showFile(){
+//   let fileType = file.type;
+//   let validExtensions = ["image/jpeg", "image/jpg", "image/png"];
+//   if(validExtensions.includes(fileType)){
+//     let fileReader = new FileReader();
+//     fileReader.onload = ()=>{
+//       let fileURL = fileReader.result;
+//       let imgTag = `<img src="${fileURL}" alt="image">`;
+//       dropArea.innerHTML = imgTag;
+//     }
+//     fileReader.readAsDataURL(file);
+//   }else{
+//     alert("This is not an Image File!");
+//     dropArea.classList.remove("active");
+//     dragText.textContent = "Drag & Drop to Upload File";
+//   }
+// }
 
 function openForm() {
   document.getElementById("post-form").style.display = "block";
@@ -255,35 +257,35 @@ function closeEditForm() {
   document.getElementById("edit-form").style.display = "none";
 }
 
-// async function handleDelete(data) { // allows deletion of items
-//   const options = {
-//       headers: {
-//           Authorization: localStorage.getItem('token')
-//       },
-//       method: 'DELETE'
-//   };
+async function handleDelete(data) { // allows deletion of items
+  const options = {
+      headers: {
+          Authorization: localStorage.getItem('token')
+      },
+      method: 'DELETE'
+  };
 
-//   if(data.user_id) {
-//   const userResponse = window.confirm("Are you sure that you want to delete this entry?");
+  if(data.user_id) {
+  const userResponse = window.confirm("Are you sure that you want to delete this entry?");
   
-//   if (userResponse) {
-//       const response = await fetch(
-//           `http://localhost:3000/books/${data['id']}`,
-//           options
-//       );
+  if (userResponse) {
+      const response = await fetch(
+          `http://localhost:3000/books/${data['id']}`,
+          options
+      );
 
-//       if (response.status === 204) {
-//           window.location.reload();
-//       } else {
-//           const respData = await response.json();
-//           alert(respData.error);
-//       }
-//   }
-// }
-//   else{
-//       window.confirm('You cant delete this post')
-//   }
-// }
+      if (response.status === 204) {
+          window.location.reload();
+      } else {
+          const respData = await response.json();
+          alert(respData.error);
+      }
+  }
+}
+  else{
+      window.confirm('You cant delete this post')
+  }
+}
 
 // async function handleEdit(data) {// edit content
 //   openEditForm();
