@@ -72,14 +72,14 @@ loadBookPosting(book2)
 //////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////
 
-function createBookPostingIMG2(imageSRC) {
+function createBookPostingIMG2(data) {
   const imgBox = document.createElement('div')
   imgBox.className = 'bookImage'
   
   const img = document.createElement('img')
-  
-  img.src = './assets/images/defaultBook.png'
-  img.alt = 'not found'
+  console.log()
+  img.src = data.link
+  img.alt = 'NO IMAGE PROVIDED'
   
   imgBox.appendChild(img)
   return imgBox
@@ -120,7 +120,8 @@ document.getElementById("post-form").addEventListener("submit", async (e) => {
     body: JSON.stringify({
       title: form.get("title"),
       author: form.get("author"),
-      content: form.get("content")
+      content: form.get("content"),
+      link: form.get('link')
     })
   };
 
@@ -130,14 +131,13 @@ document.getElementById("post-form").addEventListener("submit", async (e) => {
   if (result.status == 201) {
     // Parse the response to get the created post data
     const newPostData = await result.json();
-    const newImgData = null
       
     // Create a new post element and append it to the container
     const bigContainer = document.getElementById("bigContainer");
     const smallContainer = document.createElement('div')
     smallContainer.className = 'smallContainer'
 
-    const newPostIMG = createBookPostingIMG2(newImgData);
+    const newPostIMG = createBookPostingIMG2(newPostData);
     const newPostDES = createBookPostingDES2(newPostData);
     
     smallContainer.appendChild(newPostIMG)
@@ -190,56 +190,56 @@ loadBookPosting2();
 //////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////
 
-const dropArea = document.querySelector(".drag-area")
-const dragText = dropArea.querySelector("header")
-const button = dropArea.querySelector("button")
-const input = dropArea.querySelector("input")
-let file;
+// const dropArea = document.querySelector(".drag-area")
+// const dragText = dropArea.querySelector("header")
+// const button = dropArea.querySelector("button")
+// const input = dropArea.querySelector("input")
+// let file;
 
-dropArea.addEventListener("dragover", (event)=>{
-  event.preventDefault();
-  dropArea.classList.add("active");
-  dragText.textContent = "Release to Upload File";
-});
+// dropArea.addEventListener("dragover", (event)=>{
+//   event.preventDefault();
+//   dropArea.classList.add("active");
+//   dragText.textContent = "Release to Upload File";
+// });
 
-dropArea.addEventListener("dragleave", ()=>{
-  dropArea.classList.remove("active");
-  dragText.textContent = "Drag & Drop to Upload File";
-});
+// dropArea.addEventListener("dragleave", ()=>{
+//   dropArea.classList.remove("active");
+//   dragText.textContent = "Drag & Drop to Upload File";
+// });
 
-dropArea.addEventListener("drop", (event)=>{
-  event.preventDefault();
-  file = event.dataTransfer.files[0];
-  showFile();
-});
+// dropArea.addEventListener("drop", (event)=>{
+//   event.preventDefault();
+//   file = event.dataTransfer.files[0];
+//   showFile();
+// });
 
-button.onclick = ()=>{
-  input.click();
-}
+// button.onclick = ()=>{
+//   input.click();
+// }
 
-input.addEventListener("change", () =>{
-  file = this.files[0];
-  dropArea.classList.add("active");
-  showFile(); //calling function
-});
+// input.addEventListener("change", () =>{
+//   file = this.files[0];
+//   dropArea.classList.add("active");
+//   showFile(); //calling function
+// });
 
-function showFile(){
-  let fileType = file.type;
-  let validExtensions = ["image/jpeg", "image/jpg", "image/png"];
-  if(validExtensions.includes(fileType)){
-    let fileReader = new FileReader();
-    fileReader.onload = ()=>{
-      let fileURL = fileReader.result;
-      let imgTag = `<img src="${fileURL}" alt="image">`;
-      dropArea.innerHTML = imgTag;
-    }
-    fileReader.readAsDataURL(file);
-  }else{
-    alert("This is not an Image File!");
-    dropArea.classList.remove("active");
-    dragText.textContent = "Drag & Drop to Upload File";
-  }
-}
+// function showFile(){
+//   let fileType = file.type;
+//   let validExtensions = ["image/jpeg", "image/jpg", "image/png"];
+//   if(validExtensions.includes(fileType)){
+//     let fileReader = new FileReader();
+//     fileReader.onload = ()=>{
+//       let fileURL = fileReader.result;
+//       let imgTag = `<img src="${fileURL}" alt="image">`;
+//       dropArea.innerHTML = imgTag;
+//     }
+//     fileReader.readAsDataURL(file);
+//   }else{
+//     alert("This is not an Image File!");
+//     dropArea.classList.remove("active");
+//     dragText.textContent = "Drag & Drop to Upload File";
+//   }
+// }
 
 function openForm() {
   document.getElementById("post-form").style.display = "block";

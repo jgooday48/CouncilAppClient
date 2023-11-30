@@ -15,7 +15,7 @@ describe('index, html', () => {
 
     it('displays login popup', () => {
         const popup = document.querySelector('.login')
-        const popupBtn = document.querySelector('#openPopUp')
+        const popupBtn = document.querySelector('#myAccount')
 
         popupBtn.click()
         expect(popup.style.display).toBe('flex')
@@ -46,17 +46,6 @@ describe('library, html', () => {
     beforeEach(async () => {
         dom = await renderDOM('./library.html')
         document = await dom.window.document
-    })
-
-    it('has a navigation bar', () => {
-        const navigationBar = document.querySelector('nav')
-        expect(navigationBar).toBeTruthy()
-    })
-
-    it('displays a footer', () => {
-        const foot = document.querySelector('footer')
-        expect(foot).toBeTruthy()
-
     })
 
     it('has a navigation bar', () => {
