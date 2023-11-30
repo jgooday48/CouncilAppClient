@@ -15,6 +15,19 @@ body {
   background-color: lightgray;
 }
 
+.banner{
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 160px;
+  background-position: center;
+  margin: 10px;
+  border-bottom-style: solid;
+  border-bottom-color: rgba(0, 0, 0, 0.556);
+  border-bottom-width: 10px;
+}
 
 .container {
     display: flex;
@@ -149,4 +162,22 @@ textarea {
 
 .form-container .btn:hover, .newPostBtn:hover {
   opacity: 1;
+}
+
+.container::-webkit-scrollbar {
+  display: none;
+}
+
+body::-webkit-scrollbar {
+  width: 12px;
+}
+
+body::-webkit-scrollbar-track {
+  border-radius: 8px;
+  background-color: none;
+  border: none;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #363636;
 }
