@@ -58,36 +58,30 @@ function populateBodyWith(nameClass, labelKey, valueKey) {
     parentDiv.appendChild(label);
     parentDiv.appendChild(value);
 
-    return parentDiv; // Return the created structure
+    return parentDiv; 
 }
 
 function createPostBody(data) {
     const body = document.createElement("div");
     body.className = "pop-body";
 
-    // Price
     const priceDiv = populateBodyWith("post_price", "Price: ", `£${data["price"]}`);
     body.appendChild(priceDiv);
 
-    // Conditions
     const conditionsDiv = populateBodyWith("post_conditions", "Conditions: ", data["conditions"]);
     body.appendChild(conditionsDiv);
     
-    //location
     const locationDiv = populateBodyWith("post_location", "Location: ", data["location"]);
     body.appendChild(locationDiv);
 
-    //get user details
     const userDetailsDiv = populateBodyWith("seller_details","seller details: ",`email: ${data.user_email} <br> name: ${data.user_name}`);
     body.appendChild(userDetailsDiv);
 
-    //description
     const descriptionDiv = populateBodyWith("post_description","description: ", data["description"]);
     body.appendChild(descriptionDiv)
 
-    // Similarly, create other elements as needed...
 
-    return body; // Return the created 'pop-body' element
+    return body; 
 }
 
 function messageBtn(message,idPop) {
@@ -111,7 +105,6 @@ function messageBtn(message,idPop) {
     messageValue.setAttribute("id", "message");
     msg.appendChild(messageValue);
 
-    // Add 'active' class to the message-pop element
     msg.classList.add("active");
 
 }
@@ -137,11 +130,8 @@ postBoard()
 
 document.getElementById('post-board').addEventListener('click',async (e)=> {
     if (e.target.closest('.post')) {
-        // Click occurred on a .post element or its children
         const postId = e.target.closest('.post').id;
-        //fetch data based on id
         const response = await fetch(`http://localhost:3000/post/${postId}`);
-        //display data on the pop-up
         const singlePost = await response.json();
         const popUp = document.querySelector("#pop-up");
         const overlay = document.querySelector('#overlay');
@@ -155,7 +145,6 @@ document.getElementById('post-board').addEventListener('click',async (e)=> {
 
 
         console.log(`Post with ID ${postId} was clicked.`);
-        // Perform actions specific to the clicked post
     }
 });
 
@@ -231,7 +220,6 @@ const deleteForm = document.getElementById('delete-form');
                 
             }
         } catch (error) {
-            // Handle fetch errors here
             console.error('Error:', error);
         }
     })
@@ -267,7 +255,6 @@ patchForm.addEventListener('submit', async (e) => {
         }
     } catch (error) {
         console.error('Error:', error);
-        // Handle fetch errors here
     }
 });
 
