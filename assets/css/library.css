@@ -12,23 +12,6 @@
   display: flex;
 }
 
-<<<<<<< HEAD
-.bookIMG{
-    background-color: blue;
-    margin: 10px;
-    width: 33%;
-    height: 380px;
-    display: flex;
-    align-content: center;
-    justify-content: center;
-}
-
-.bookIMG img{
-    background-color: lightcyan;
-    margin: 10px;
-    /* width: 250px;
-    height: 300px; */
-=======
 .bookImage{
   background-color: blue;
   margin: 10px;
@@ -42,7 +25,6 @@
 .bookImage img{
   background-color: lightcyan;
   margin: 10px;
->>>>>>> b3a1ef7b6722e10865b035b4e9d8260b5a176795
 }
 
 .bookDescription{
