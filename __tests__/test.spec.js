@@ -58,4 +58,19 @@ describe('library, html', () => {
         expect(foot).toBeTruthy()
 
     })
+<<<<<<< HEAD
+
+    it('has a navigation bar', () => {
+        const navigationBar = document.querySelector('nav')
+        expect(navigationBar).toBeTruthy()
+    })
+
+    it('displays a footer', () => {
+        const foot = document.querySelector('footer')
+        expect(foot).toBeTruthy()
+
+    })
 })
+=======
+})
+>>>>>>> d6c0b515f80ff450ed8993c52fb744edc1712f71

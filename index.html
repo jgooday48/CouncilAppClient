@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./assets/css/popup.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="shortcut icon" href="./assets/images/fav.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./assets/images/fav.png" type="image/x-icon">
     
     <link rel="stylesheet" href="./assets/css/index.css">
 
@@ -32,16 +32,37 @@
     
     <app-myaccount></app-myaccount>
 
-    <div class="communityStatmentContainer">
-        <div class="statement">
-            <h2>Communtiy Statment</h2>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
-                Impedit, nostrum voluptatibus minima illo labore neque 
-                voluptate fuga vero, atque voluptates illum debitis aut 
-                veniam saepe reiciendis? Recusandae iure nostrum tenetur.
-                obcaecati, esse ducimus veritatis vitae tempore temporibus</p>
+        <div class="popupContainer" id="register">
+                <button class="exitButton">&times;</button>
+                <form id="registrationForm">
+                    <h3>Name</h3>
+                    <label for="name">Firstname</label>
+                    <input type="text" id="name" name="name" placeholder="name"> <br>
+                    <label for="surname">Surname</label>
+                    <input type="text" id="surname" name="surname" placeholder="surname"> <br>
+
+                    <h3>Details</h3>
+                    <label for="email">Email</label>
+                    <input type="text" id="registerEmail" name="email" placeholder="email"><br>
+                    <label for="password">Password</label>
+                    <input type="password" id="registerPassword" name="password" placeholder="password"><br>
+
+                    <input type="submit" value="Confirm">
+                </form>
+        </div>
+
+        <div class="communityStatmentContainer">
+            <div class="statement">
+                <h2>community Statement</h2>
+                <p>Welcome to Florin Counties app based approach to dealing with local issues within Florin</p>
+                <p>On this app you can find:<br>
+                    A marketplace which is our idea to reduce overuse of our local recycling center<br>
+                    A Skills share page where community members can pass on information and hand down skills<br>
+                    A library page where our local library can upload fun posts and advertise for staff</p><br>
+            </div>
         </div>
     </div>
+    </main>
 </body>
 
 <footer>

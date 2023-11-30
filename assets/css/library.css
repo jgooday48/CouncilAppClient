@@ -1,3 +1,17 @@
+.banner{
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 160px;
+  background-position: center;
+  margin: 10px;
+  border-bottom-style: solid;
+  border-bottom-color: rgba(0, 0, 0, 0.556);
+  border-bottom-width: 10px;
+}
+
 .bigContainer{
   width: 100%;
   display: flex;
@@ -224,4 +238,18 @@ textarea:focus {
 
 .form-container .cancel {
   background-color: rgb(49, 44, 44);
+}
+
+body::-webkit-scrollbar {
+  width: 12px;
+}
+
+body::-webkit-scrollbar-track {
+  border-radius: 8px;
+  background-color: none;
+  border: none;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #363636;
 }
