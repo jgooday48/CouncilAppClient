@@ -1,6 +1,6 @@
 #post-board {
     display: grid;
-    min-height: 60vh;
+    min-height: 80vh;
     background-color: aquamarine;
     grid-template-columns: repeat(auto-fit, minmax(300px, 20vh)); /* Setting a minimum width of 300px per column */
     gap: 20px; /* Adjust the gap between grid items */
@@ -202,6 +202,10 @@
     font-size: 20px;
     color: #666;
     cursor: pointer;
+    align-items: start;
+    border: none; 
+    background:none;
+    font-size: larger;
 }
   
   /* Pop-up header */
@@ -218,7 +222,11 @@
 .post_name {
     padding-left: 4px;
     font-weight: bold;
+    /* background-color: #ff0055; */
     font-size: larger;
+}
+h6{
+    color: gray;
 }
   
   /* Pop-up body */
@@ -341,4 +349,203 @@
 #update-btn:hover,
 #destroy-btn:hover {
     background-color: #2980b9;
+}
+
+
+/* delete form*/
+
+#delete-pop {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
+    /*display: none; /* initially hidden */
+}
+
+#delete-pop.active{
+    transform: translate(-50%, -50%) scale(1);
+}
+/* Header */
+.delete-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+/* Close button */
+.close-button {
+    cursor: pointer;
+}
+
+/* Body */
+#delete-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#delete-form label {
+    font-weight: bold;
+}
+
+#delete-form input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+#delete-form fieldset{
+    border: 0px;
+}
+
+#delete-form input[type="submit"] {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    background-color: #ff0055; /* Blue color, change as needed */
+    color: #fff;
+    cursor: pointer;
+}
+
+/*patch request*/
+
+/* Patch form */
+
+#patch-pop {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
+    /* display: none; /* initially hidden */
+}
+
+#patch-pop.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Header */
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+/* Close button */
+.close-button {
+    cursor: pointer;
+}
+
+/* Body */
+#patch-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#patch-form label {
+    font-weight: bold;
+}
+
+#patch-form input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+#patch-form fieldset {
+    border: 0px;
+}
+
+#patch-form input[type="submit"] {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    background-color: #ff0055; /* Red color, change as needed */
+    color: #fff;
+    cursor: pointer;
+}
+
+/*post request*/
+
+#create-pop {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
+}
+
+#create-pop.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Header */
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+/* Close button */
+.close-button {
+    cursor: pointer;
+}
+
+/* Body */
+#create-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#create-form label {
+    font-weight: bold;
+}
+
+#create-form input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+#create-form fieldset {
+    border: 0px;
+}
+
+#create-form input[type="submit"] {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    background-color: #ff0055;
+    color: #fff;
+    cursor: pointer;
 }

@@ -35,7 +35,7 @@ function createPostHeader (data) {
 
     const name_item = document.createElement("div");
     name_item.className = 'post_name'
-    name_item.textContent = data["post_name"];
+    name_item.innerHTML = `${data.post_name} <br> <h6>id:${data.post_id}</h6>`;
     head.appendChild(name_item);
 
     const close_btn = document.createElement("button");
@@ -96,15 +96,6 @@ function createPostBody(data) {
 
 
 
-//populate the pop-up
-// function popUp(data){
-//     const popHead = createPostHeader(data)
-
-// }
-
-//add event listener to ope and close the pop-up
-
-
 async function postBoard(){
     const response = await fetch("http://localhost:3000/post/");
 
@@ -128,7 +119,7 @@ document.getElementById('post-board').addEventListener('click',async (e)=> {
         // Click occurred on a .post element or its children
         const postId = e.target.closest('.post').id;
         //fetch data based on id
-        const response = await fetch(`http://localhost:3000/post/id/${postId}`);
+        const response = await fetch(`http://localhost:3000/post/${postId}`);
         //display data on the pop-up
         const singlePost = await response.json();
         const popUp = document.querySelector("#pop-up");
@@ -138,8 +129,8 @@ document.getElementById('post-board').addEventListener('click',async (e)=> {
         popUp.appendChild(haeder);
         const body = createPostBody(singlePost);
         popUp.appendChild(body);
-        popUp.className = "active"
-        overlay.className = "active"
+        popUp.classList.add("active");
+        overlay.classList.add("active");
 
 
         console.log(`Post with ID ${postId} was clicked.`);
@@ -151,9 +142,150 @@ document.getElementById('post-board').addEventListener('click',async (e)=> {
 const closeBtn = document.querySelector(".close-button")
 document.addEventListener('click', (e) => {
     if (e.target.classList.contains('close-button')) {
-        const popUp = document.querySelector("#pop-up");
+        const popUps = document.querySelectorAll(".surprise");
         const overlay = document.querySelector('#overlay');
-        popUp.classList.remove("active");
+        popUps.forEach(popUp => {
+            popUp.classList.remove("active");
+        });
         overlay.classList.remove("active");
+    }
+});
+
+//editor buttons
+const deleteBtn = document.querySelector("#destroy-btn");
+deleteBtn.addEventListener('click', ()=>{
+    const popUp = document.querySelector("#delete-pop");
+    const overlay = document.querySelector('#overlay');
+    popUp.classList.add("active");
+    overlay.classList.add("active");
+    
+})
+
+const patchBtn = document.querySelector("#update-btn");
+patchBtn.addEventListener('click', ()=>{
+    const popUp = document.querySelector("#patch-pop");
+    const overlay = document.querySelector('#overlay');
+    popUp.classList.add("active");
+    overlay.classList.add("active");
+    
+})
+
+const postBtn = document.querySelector("#create-btn");
+postBtn.addEventListener('click', ()=>{
+    const popUp = document.querySelector("#create-pop");
+    const overlay = document.querySelector('#overlay');
+    popUp.classList.add("active");
+    overlay.classList.add("active");
+    
+})
+
+
+
+//delete request
+
+const deleteForm = document.getElementById('delete-form');
+    deleteForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const form = new FormData(e.target);
+        const postId = form.get('idToDelete');
+        const options = {
+            method: "DELETE",
+            headers: {
+                'Authorization': localStorage.getItem("token")
+            },
+        }
+        try {
+            const response = await fetch(`http://localhost:3000/post/${postId}`, options);
+            if (response.status === 204) {
+                // Optionally handle success response here
+                console.log(`Post with ID ${postId} deleted successfully.`);
+                window.location.reload();
+            } else {
+                // Handle non-success response here
+                console.error(`Failed to delete post with ID ${postId}.`);
+            }
+        } catch (error) {
+            // Handle fetch errors here
+            console.error('Error:', error);
+        }
+    })
+
+//patch request
+const patchForm = document.getElementById('patch-form');
+patchForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.target);
+    const patchData = {
+        post_id: formData.get('idToPatch'),
+        price: formData.get('newPrice')
+    };
+
+    const options = {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(patchData)
+    };
+
+    try {
+        const response = await fetch(`http://localhost:3000/post/${patchData.post_id}`, options);
+        if (response.status === 200) {
+            const data = await response.json();
+            console.log('Patch request successful:', data);
+            // window.location.reload();
+        } else {
+            console.error('Failed to patch:', response.status);
+            // Handle non-successful responses here
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        // Handle fetch errors here
+    }
+});
+
+
+
+//post request
+
+const createForm = document.getElementById('create-form');
+createForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.target);
+    const postData = {
+        post_name: formData.get('name'),
+        user_id: 2,
+        conditions: formData.get('conditions'),
+        description: formData.get('description'),
+        location: formData.get('location'),
+        price: formData.get('price')
+    };
+
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            // You may add additional headers if required
+        },
+        body: JSON.stringify(postData)
+    };
+
+    try {
+        const response = await fetch('http://localhost:3000/post/', options);
+        if (response.status===201) {
+            const data = await response.json();
+            window.location.reload();
+            console.log('Post created successfully:', data);
+            // Optionally perform actions after a successful POST request
+        } else {
+            console.error('Failed to create post:', response.status);
+            // Handle non-successful responses here
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        // Handle fetch errors here
     }
 });

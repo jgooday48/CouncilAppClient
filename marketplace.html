@@ -36,12 +36,68 @@
         </div>
     </div>
     <main>
-        <div></div>
-        <div id="post-board">
-        </div>
-        <div id="pop-up" >
+        <div id="post-board"></div>
+        <div id="pop-up" class="surprise"></div>
+        <div id="delete-pop" class="surprise">
+            <div class="delete-header">
+                <div class="delete_name">Delete</div>
+                <div class="close-button">&times;</div>
+            </div>
+            <div class="delete-body">
+                <form id="delete-form">
+                    <fieldset>
+                        <label for="delete-post">Post Id: </label>
+                        <input type="text" id="delete-post" name="idToDelete" placeholder="eg: 5" required>
+                    </fieldset>
+                    <input type="submit" value="Delete">
+                </form>
             </div>
         </div>
+        <div id="patch-pop" class="surprise">
+            <div class="post-header">
+                <div class="patch_name">Patch</div>
+                <div class="close-button">&times;</div>
+            </div>
+            <div class="patch-body">
+                <form id="patch-form">
+                    <fieldset>
+                        <label for="patch-post">Post Id: </label>
+                        <input type="text" id="patch-post" name="idToPatch" placeholder="eg. 5" required>
+                        <label for="new-price">New price: £</label>
+                        <input type="text" id="new-price" name="newPrice" placeholder="eg. 5.99" required>
+                    </fieldset>
+                    <input type="submit" value="update">
+                </form>
+            </div>
+        </div>
+        <div id="create-pop" class="surprise">
+            <div class="post-header">
+                <div class="create_name">Create Post</div>
+                <div class="close-button">&times;</div>
+            </div>
+            <div class="create-body">
+                <form id="create-form">
+                    <fieldset>
+                        <label for="post-name">Name: </label>
+                        <input type="text" id="post-name" name="name" placeholder="Enter name" required>
+                        
+                        <label for="post-conditions">Conditions: </label>
+                        <input type="text" id="post-conditions" name="conditions" placeholder="Enter conditions" required>
+                        
+                        <label for="post-description">Description: </label>
+                        <input type="text" id="post-description" name="description" placeholder="Enter description" required>
+                        
+                        <label for="post-location">Location: </label>
+                        <input type="text" id="post-location" name="location" placeholder="Enter location" required>
+                        
+                        <label for="post-price">Price: £</label>
+                        <input type="text" id="post-price" name="price" placeholder="Enter price" required>
+                    </fieldset>
+                    <input type="submit" value="Create">
+                </form>
+            </div>
+        </div>
+        
         <div id="overlay"></div>
     </main>
     <footer>
