@@ -15,7 +15,7 @@ describe('index, html', () => {
 
     it('displays login popup', () => {
         const popup = document.querySelector('.login')
-        const popupBtn = document.querySelector('#openPopUp')
+        const popupBtn = document.querySelector('#myAccount')
 
         popupBtn.click()
         expect(popup.style.display).toBe('flex')
@@ -58,6 +58,7 @@ describe('library, html', () => {
         expect(foot).toBeTruthy()
 
     })
+<<<<<<< HEAD
 
     it('has a navigation bar', () => {
         const navigationBar = document.querySelector('nav')
@@ -70,3 +71,6 @@ describe('library, html', () => {
 
     })
 })
+=======
+})
+>>>>>>> d6c0b515f80ff450ed8993c52fb744edc1712f71

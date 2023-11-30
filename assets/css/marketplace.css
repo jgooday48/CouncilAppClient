@@ -1,26 +1,30 @@
-.banner{
-  color: black;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 160px;
-  background-position: center;
-  margin: 10px;
-  border-bottom-style: solid;
-  border-bottom-color: rgba(0, 0, 0, 0.556);
-  border-bottom-width: 10px;
+.banner {
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 160px;
+    background-position: center;
+    margin: 10px;
+    border-bottom-style: solid;
+    border-bottom-color: rgba(0, 0, 0, 0.556);
+    border-bottom-width: 10px;
 }
 
 #post-board {
     display: grid;
-    min-height: 60vh;
+    min-height: 80vh;
     background-color: aquamarine;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 20vh)); /* Setting a minimum width of 300px per column */
-    gap: 20px; /* Adjust the gap between grid items */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 20vh));
+    /* Setting a minimum width of 300px per column */
+    gap: 20px;
+    /* Adjust the gap between grid items */
     margin: 5px;
-    
-    
+    justify-content: space-evenly;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
 }
 
 /* Ensure consistent and descriptive class names */
@@ -93,7 +97,7 @@
     'body'; */
 
 
-    /* grid-template: 
+/* grid-template: 
     'post_name post_name '
     'post_price post_conditions'
     'post_location seller_details'
@@ -101,7 +105,7 @@
     overflow-y: hidden;
     grid-template-rows: 2fr 1fr 2fr 5fr; */
 /* } */
-  
+
 
 /* .pop-header{
     grid-area: header;
@@ -122,9 +126,9 @@
 
 
 
-  
-  
-  /* .post_name {
+
+
+/* .post_name {
     font-weight: bold;
     background-color: pink;
     grid-area: post_name;
@@ -134,8 +138,8 @@
     align-items: center;
     font-size: larger;
   } */
-  
-  /* .post_price {
+
+/* .post_price {
     font-style: italic;
     background-color: orange;
     border: 1px solid gray;
@@ -198,25 +202,29 @@
     z-index: 1000;
     display: grid;
     grid-template-areas:
-      'header'
-      'body';
+        'header'
+        'body';
     overflow-y: auto;
     grid-template-rows: 1fr 5fr;
 }
 
-#pop-up.active{
+#pop-up.active {
     transform: translate(-50%, -50%) scale(1);
 }
-  
-  /* Close button styles */
+
+/* Close button styles */
 .close-button {
     justify-self: end;
     font-size: 20px;
     color: #666;
     cursor: pointer;
+    align-items: start;
+    border: none;
+    background: none;
+    font-size: larger;
 }
-  
-  /* Pop-up header */
+
+/* Pop-up header */
 .pop-header {
     grid-area: header;
     display: flex;
@@ -225,27 +233,32 @@
     margin-bottom: 15px;
     /* background-color: pink; */
 }
-  
-  /* Post name */
+
+/* Post name */
 .post_name {
     padding-left: 4px;
     font-weight: bold;
+    /* background-color: #ff0055; */
     font-size: larger;
 }
-  
-  /* Pop-up body */
+
+h6 {
+    color: gray;
+}
+
+/* Pop-up body */
 .pop-body {
     grid-area: body;
     display: grid;
     grid-gap: 10px;
     grid-template:
-    'post_price post_conditions'
-    'post_location seller_details'
-    'post_description post_description';
+        'post_price post_conditions'
+        'post_location seller_details'
+        'post_description post_description';
     grid-template-rows: 2fr 2fr 5fr;
 }
-  
-  
+
+
 .post_price {
     font-style: italic;
     /* background-color: orange; */
@@ -253,7 +266,7 @@
     grid-area: post_price;
     padding-left: 5px;
 }
-  
+
 .post_conditions {
     color: #333;
     font-style: italic;
@@ -262,7 +275,7 @@
     padding-left: 5px;
     grid-area: post_conditions;
 }
-  
+
 .post_location {
     font-size: 14px;
     border: 1px solid gray;
@@ -270,7 +283,7 @@
     padding-left: 5px;
     grid-area: post_location;
 }
-  
+
 .seller_details {
     font-size: 14px;
     /* background-color: green; */
@@ -278,7 +291,7 @@
     padding-left: 5px;
     grid-area: seller_details;
 }
-  
+
 .post_description {
     font-size: 16px;
     /* background-color: gold; */
@@ -305,16 +318,269 @@
     pointer-events: all;
 }
 
+/* editor bar */
+
+.post-edit {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    height: 10vh
+}
+
+.page-name {
+    padding-left: 20px;
+
+    background-color: bisque;
+}
+
+.page-name,
+.editor {
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    background-color: bisque;
+    /* Change background color as needed */
+}
+
+.editor {
+    background-color: violet;
+    justify-content: space-evenly;
+}
+
+/* Styling for create-btn, update-btn, and destroy-btn */
+#create-btn,
+#update-btn,
+#destroy-btn {
+    display: block;
+    margin: 10px;
+    padding: 12px 20px;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #3498db;
+    color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+#create-btn:hover,
+#update-btn:hover,
+#destroy-btn:hover {
+    background-color: #2980b9;
+}
+
+
+/* delete form*/
+
+#delete-pop {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
+    /*display: none; /* initially hidden */
+}
+
+#delete-pop.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Header */
+.delete-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+/* Close button */
+.close-button {
+    cursor: pointer;
+}
+
+/* Body */
+#delete-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#delete-form label {
+    font-weight: bold;
+}
+
+#delete-form input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+#delete-form fieldset {
+    border: 0px;
+}
+
+#delete-form input[type="submit"] {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    background-color: #ff0055;
+    /* Blue color, change as needed */
+    color: #fff;
+    cursor: pointer;
+}
+
+/*patch request*/
+
+/* Patch form */
+
+#patch-pop {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
+    /* display: none; /* initially hidden */
+}
+
+#patch-pop.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Header */
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+/* Close button */
+.close-button {
+    cursor: pointer;
+}
+
+/* Body */
+#patch-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#patch-form label {
+    font-weight: bold;
+}
+
+#patch-form input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+#patch-form fieldset {
+    border: 0px;
+}
+
+#patch-form input[type="submit"] {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    background-color: #ff0055;
+    /* Red color, change as needed */
+    color: #fff;
+    cursor: pointer;
+}
+
+/*post request*/
+
+#create-pop {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
+}
+
+#create-pop.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Header */
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+/* Close button */
+.close-button {
+    cursor: pointer;
+}
+
+/* Body */
+#create-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#create-form label {
+    font-weight: bold;
+}
+
+#create-form input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+#create-form fieldset {
+    border: 0px;
+}
+
+#create-form input[type="submit"] {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    background-color: #ff0055;
+    color: #fff;
+    cursor: pointer;
+}
+
 body::-webkit-scrollbar {
-  width: 12px;
+    width: 12px;
 }
 
 body::-webkit-scrollbar-track {
-  border-radius: 8px;
-  background-color: none;
-  border: none;
+    border-radius: 8px;
+    background-color: none;
+    border: none;
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: #363636;
+    background-color: #363636;
 }
