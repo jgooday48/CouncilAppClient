@@ -3,17 +3,6 @@ function createPostElement (data) {
     post.className = "post";
     post.setAttribute('id', `${data["post_id"]}`);
 
-
-    const image = document.createElement("div");
-    image.className = "image"
-    post.appendChild(image);
-
-    const price = document.createElement("div");
-    price.className = "text"
-    price.textContent = `£${data["price"]}`;
-    image.appendChild(price);
-    
-
     const title = document.createElement("div");
     title.className = "title"
     title.textContent = data["post_name"];
@@ -23,6 +12,15 @@ function createPostElement (data) {
     description.className = "description"
     description.textContent = data["description"];
     post.appendChild(description);
+
+    const image = document.createElement("div");
+    image.className = "image"
+    post.appendChild(image);
+
+    const price = document.createElement("div");
+    price.className = "text"
+    price.textContent = `£${data["price"]}`;
+    image.appendChild(price);
 
     return post;
 }
@@ -45,8 +43,6 @@ function createPostHeader (data) {
 
     return head;
 }
-
-//fill the body function
 
 //function to populate body with different parts
 function populateBodyWith(nameClass, labelKey, valueKey) {
@@ -94,6 +90,31 @@ function createPostBody(data) {
     return body; // Return the created 'pop-body' element
 }
 
+function messageBtn(message,idPop) {
+    const msg = document.querySelector("#message-pop");
+    const ogPop = document.querySelector(`#${idPop}`)
+    ogPop.classList.remove("active")
+    msg.innerHTML = "";
+    
+    const closingBtn = document.createElement("div");
+    closingBtn.innerHTML = "&times;";
+    closingBtn.classList.add("close-button");
+    msg.appendChild(closingBtn);
+
+    const label = document.createElement("div");
+    label.innerHTML = "Message:";
+    label.classList.add("message-label");
+    msg.appendChild(label);
+
+    const messageValue = document.createElement("div");
+    messageValue.innerHTML = message;
+    messageValue.setAttribute("id", "message");
+    msg.appendChild(messageValue);
+
+    // Add 'active' class to the message-pop element
+    msg.classList.add("active");
+
+}
 
 
 async function postBoard(){
@@ -148,6 +169,9 @@ document.addEventListener('click', (e) => {
             popUp.classList.remove("active");
         });
         overlay.classList.remove("active");
+        window.location.reload();
+
+
     }
 });
 
@@ -198,12 +222,13 @@ const deleteForm = document.getElementById('delete-form');
         try {
             const response = await fetch(`http://localhost:3000/post/${postId}`, options);
             if (response.status === 204) {
-                // Optionally handle success response here
-                console.log(`Post with ID ${postId} deleted successfully.`);
-                window.location.reload();
+                messageBtn(`Post with ID ${postId} deleted successfully.`, "delete-pop")
+                
+
             } else {
-                // Handle non-success response here
                 console.error(`Failed to delete post with ID ${postId}.`);
+                messageBtn('unable to delete post, you can delete your posts  only and only after you sign in.', "delete-pop")
+                
             }
         } catch (error) {
             // Handle fetch errors here
@@ -234,12 +259,11 @@ patchForm.addEventListener('submit', async (e) => {
     try {
         const response = await fetch(`http://localhost:3000/post/${patchData.post_id}`, options);
         if (response.status === 200) {
-            const data = await response.json();
-            console.log('Patch request successful:', data);
-            // window.location.reload();
+            messageBtn('price updated succesfully',"patch-pop")
+            
         } else {
             console.error('Failed to patch:', response.status);
-            // Handle non-successful responses here
+            messageBtn('unable to update price, you can update your posts only and only after you sign in.',"patch-pop")
         }
     } catch (error) {
         console.error('Error:', error);
@@ -258,7 +282,6 @@ createForm.addEventListener('submit', async (e) => {
     const formData = new FormData(e.target);
     const postData = {
         post_name: formData.get('name'),
-        // user_id: formData.get(''),
         conditions: formData.get('conditions'),
         description: formData.get('description'),
         location: formData.get('location'),
@@ -270,7 +293,6 @@ createForm.addEventListener('submit', async (e) => {
         headers: {
             'Content-Type': 'application/json',
             'Authorization': localStorage.getItem("token")
-            // You may add additional headers if required
         },
         body: JSON.stringify(postData)
     };
@@ -278,16 +300,11 @@ createForm.addEventListener('submit', async (e) => {
     try {
         const response = await fetch('http://localhost:3000/post/', options);
         if (response.status===201) {
-            const data = await response.json();
-            window.location.reload();
-            console.log('Post created successfully:', data);
-            // Optionally perform actions after a successful POST request
+            messageBtn('Post created successfully',"create-pop")
         } else {
-            console.error('Failed to create post:', response.status);
-            // Handle non-successful responses here
+            messageBtn('couldent create the post, make sure you have logged in.',"create-pop")
         }
     } catch (error) {
         console.error('Error:', error);
-        // Handle fetch errors here
     }
 });

@@ -16,7 +16,7 @@
     border: 1px solid #ccc;
     aspect-ratio: 3 / 4;
     display: grid;
-    grid-template-rows: 70% 10% 20%;
+    grid-template-rows: 20% 70% 10%;
     overflow: hidden;
     cursor: pointer;
 }
@@ -28,15 +28,14 @@
 
 .image {
     position: relative;
-    background-color: bisque;
+    background-color: gainsboro;
     display: grid;
+    justify-content: center;
+    align-items: center;
 }
 
 .text {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    background-color: whitesmoke;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 /* Unique styles for title */
@@ -57,116 +56,6 @@
     align-items: center;
     font-size: 20px;
 }
-
-/*pop-up css
-
-/* Base styles for the pop-up */
-/* .pop-up {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 50%;
-    min-width: 400px;
-    height: 45vh;
-    padding: 20px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    display: grid;
-    grid-template: 
-    'header'
-    'body'; */
-
-
-    /* grid-template: 
-    'post_name post_name '
-    'post_price post_conditions'
-    'post_location seller_details'
-    'post_description post_description';
-    overflow-y: hidden;
-    grid-template-rows: 2fr 1fr 2fr 5fr; */
-/* } */
-  
-
-/* .pop-header{
-    grid-area: header;
-    display: grid;
-}
-
-.close-button {
-    justify-self: end;
-    margin-top: -10px; 
-    font-size: 20px;
-    color: #666;
-    cursor: pointer;
-}
-
-.pop-body{
-    grid-area: body;
-} */
-
-
-
-  
-  
-  /* .post_name {
-    font-weight: bold;
-    background-color: pink;
-    grid-area: post_name;
-    display: grid;
-    text-align: center;
-    border: 1px solid gray;
-    align-items: center;
-    font-size: larger;
-  } */
-  
-  /* .post_price {
-    font-style: italic;
-    background-color: orange;
-    border: 1px solid gray;
-    grid-area: post_price;
-    padding-left: 5px;
-  }
-  
-  .post_conditions {
-    color: #333;
-    font-style: italic;
-    border: 1px solid gray;
-    background-color: brown;
-    padding-left: 5px;
-    grid-area: post_conditions;
-  }
-  
-  .post_location {
-    font-size: 14px;
-    border: 1px solid gray;
-    background-color: yellow;
-    padding-left: 5px;
-    grid-area: post_location;
-  }
-  
-  .seller_details {
-    font-size: 14px;
-    background-color: green;
-    border: 1px solid gray;
-    padding-left: 5px;
-    grid-area: seller_details;
-  }
-  
-  .post_description {
-    font-size: 16px;
-    background-color: gold;
-    grid-area: post_description;
-    padding-left: 5px;
-    border: 1px solid gray;
-    overflow: auto;
-  } */
-
-
-/*third try*/
 
 /* Pop-up container */
 #pop-up {
@@ -548,4 +437,48 @@ h6{
     background-color: #ff0055;
     color: #fff;
     cursor: pointer;
+}
+
+/*message pop-up*/
+#message-pop {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    height: 30vh;
+    width: 40vh;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
+    display: grid;
+    grid-template-rows: 1fr 2fr 5fr;
+    /* display: none; */ /* Initially hidden */
+}
+
+#message-pop.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Close button */
+#message-pop .close-button {
+    cursor: pointer;
+    position: absolute;
+    right: 5px;
+    top: 0;
+}
+
+/* Message content */
+#message-pop #message {
+    color: #666;
+    display: grid;
+    place-items: center;
+    height: 20vh;
+}
+
+#message-pop .message-label{
+    display: grid;
+    place-items: center;
 }
