@@ -4,9 +4,7 @@
   "description": "This repo is the client side of a council app.",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watchAll --detectOpenHandles --runInBand --verbose",
-    "unitTests": "jest --testPathPattern=/unit/ --watchAll --verbose",
-    "coverage": "jest --coverage --testPathPattern=/unit/",
+    "test": "jest --coverage --watch-all --verbose",
     "live-server": "live-server"
   },
   "keywords": [],

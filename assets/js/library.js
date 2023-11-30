@@ -192,6 +192,7 @@ async function handleEdit(data) {// edit content
       method: "PATCH",
       headers: {
         Authorization: localStorage.getItem('token'),
+
         Accept: 'application/json',
         'Content-Type': 'application/json'
       },
