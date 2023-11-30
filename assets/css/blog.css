@@ -5,7 +5,7 @@
 body {
   background-image: url(../images/crafts.jpg);
 }
-p, h1 {
+.des, h1 {
   display: flex;
   justify-content: center;
  
@@ -44,10 +44,16 @@ textarea {
     justify-content: center;
   }
 
-/* .post h3 {
-  font-style: italic;
-  background-color: rgb(49, 44, 44);
-} */
+.post p {
+
+  background-color: rgba(0, 0, 0, 0.372);
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  letter-spacing: 2px;
+  line-height: 20px;
+  color: aliceblue;
+  margin: 30px 5px 5px 5px;
+  padding: 10px;
+}
 
 * {box-sizing: border-box;}
 

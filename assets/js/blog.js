@@ -98,7 +98,7 @@ function createPostElement(data) {
     header.textContent = data["title"];
     post.appendChild(header);
 
-    const content = document.createElement("div");
+    const content = document.createElement("p");
     content.innerHTML = data["content"].replace(/\n/g, '<br>'); // Replace newline characters with <br> tags
     content.setAttribute("contenteditable", "true");
     // content.style.textAlign = "center"; // Center the text
