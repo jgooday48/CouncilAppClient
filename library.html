@@ -52,13 +52,13 @@
     <div class="bigContainer" id="bigContainer"></div>
 
     <div class="form-popup" id="post-form">
-        <div class="drag-area">
+        <!-- <div class="drag-area">
             <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
             <header>Drag & Drop to Upload File</header>
             <span>OR</span>
             <button>Browse File</button>
             <input type="file" hidden>
-        </div>
+        </div> -->
 
         <form class="form-container">
             <h2>Post a knowledge and crafts post</h2>
@@ -68,7 +68,7 @@
             </fieldset>
             
             <fieldset id="author">
-                <label for="title">author:</label>
+                <label for="title">Author:</label>
                 <input type="text" id="author" name="author" required>
             </fieldset>
             
@@ -77,6 +77,10 @@
                 <textarea id="content" name="content" required></textarea>
             </fieldset>
             
+            <fieldset>
+                <label for="link">Image URL:</label>
+                <input type="url" id="link" name="link">
+            </fieldset>
             <input type="submit"  class="btn postBtn" value="Post" id="post">
             <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
         </form>

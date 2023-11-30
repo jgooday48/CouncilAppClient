@@ -72,14 +72,14 @@ loadBookPosting(book2)
 //////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////
 
-function createBookPostingIMG2(imageSRC) {
+function createBookPostingIMG2(data) {
   const imgBox = document.createElement('div')
   imgBox.className = 'bookImage'
   
   const img = document.createElement('img')
-  
-  img.src = './assets/images/defaultBook.png'
-  img.alt = 'not found'
+  console.log()
+  img.src = data.link
+  img.alt = 'NO IMAGE PROVIDED'
   
   imgBox.appendChild(img)
   return imgBox
@@ -120,7 +120,8 @@ document.getElementById("post-form").addEventListener("submit", async (e) => {
     body: JSON.stringify({
       title: form.get("title"),
       author: form.get("author"),
-      content: form.get("content")
+      content: form.get("content"),
+      link: form.get('link')
     })
   };
 
@@ -130,14 +131,13 @@ document.getElementById("post-form").addEventListener("submit", async (e) => {
   if (result.status == 201) {
     // Parse the response to get the created post data
     const newPostData = await result.json();
-    const newImgData = null
       
     // Create a new post element and append it to the container
     const bigContainer = document.getElementById("bigContainer");
     const smallContainer = document.createElement('div')
     smallContainer.className = 'smallContainer'
 
-    const newPostIMG = createBookPostingIMG2(newImgData);
+    const newPostIMG = createBookPostingIMG2(newPostData);
     const newPostDES = createBookPostingDES2(newPostData);
     
     smallContainer.appendChild(newPostIMG)
