@@ -26,10 +26,13 @@ body {
 }
 
 .post {
-    width: 150vw;
+    width: 900px;
+ 
+
     padding: 15px;
+    margin: 3px;
     border-radius: 20px;
-    /* border-style: double; */
+    border-style: double;
     color: white;
     background-color: green;
 }
@@ -66,7 +69,8 @@ textarea {
 
 .editBtn,
 .removeBtn {
-  margin-left: 5px; 
+  /* margin-left: 5px; */
+  margin: 3px; 
   background-color: white;
   color: green;
   border: 1px;
