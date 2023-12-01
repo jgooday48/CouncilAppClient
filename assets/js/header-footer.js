@@ -7,7 +7,7 @@ class Navbar extends HTMLElement {
             <ul class="itemList">
                 <li class="navItem"><a href="index.html">Home</a></li>
                 <li class="navItem"><a href="marketplace.html">Marketplace</a></li>
-                <li class="navItem"><a href="blog.html">Skills</a></li>
+                <li class="navItem"><a href="blog.html">Knowledge and Skills</a></li>
                 <li class="navItem"><a href="library.html">Library</a></li>
                 <li class="navItem"><button class="openButton" id="myAccount">MyAccount</button></li>
             </ul>

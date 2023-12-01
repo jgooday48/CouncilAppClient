@@ -86,21 +86,31 @@ textarea {
 } */
 
  
-
-
-
-
 .editBtn,
-.removeBtn {
-  /* margin-left: 5px; */
-  position: relative;
-  margin: 3px; 
-  background-color: white;
-  color: green;
-  border: 1px;
-  padding: 4px 3px;
-  cursor: pointer;
+.removeBtn{
+  background-color: black;
+  color: aliceblue;
+  width: 150px;
+  height: 30px;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 7px;
 }
+
+.editBtn:hover,
+.removeBtn:hover{
+  color: darkgreen;
+}
+
+.editBtn:active,
+.removeBtn:active{
+  height: 27px;
+  margin-top: 5px;
+}
+
+
+
+
 
 
 
