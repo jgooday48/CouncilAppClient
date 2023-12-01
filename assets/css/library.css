@@ -83,6 +83,28 @@
 //////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////// */
 
+.editPostBtn,
+.deletePostBtn{
+  background-color: black;
+  color: aliceblue;
+  width: 150px;
+  height: 30px;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 7px;
+}
+
+.editPostBtn:hover,
+.deletePostBtn:hover{
+  color: darkgreen;
+}
+
+.editPostBtn:active,
+.deletePostBtn:active{
+  height: 27px;
+  margin-top: 5px;
+}
+
 .newPostBtn {
   background-color: green;
   color: white;
